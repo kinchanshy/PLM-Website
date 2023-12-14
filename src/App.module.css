@@ -1,0 +1,37 @@
+.root {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  line-height: 2.375rem;
+  font-size: 1rem;
+  height: 2.375rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  border-left: 0.125rem solid gray;
+}
+
+.link:hover {
+  background-color: #efefef;
+}
+
+.linkActive {
+  font-weight: 500px;
+  color: #d5a106;
+}
+
+.indicator {
+  transition: transform 150ms ease;
+  border: 0.125rem solid #d5a106;
+  background-color: #fff;
+  height: 0.625rem;
+  width: 0.625rem;
+  border-radius: 0.625rem;
+  position: absolute;
+  left: calc((0.625rem) / -2 + 0.063rem);
+}

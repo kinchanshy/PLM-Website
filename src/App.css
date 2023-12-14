@@ -1,0 +1,117 @@
+@import url("./components//components.css");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: "Open Sans", sans-serif;
+}
+
+.main {
+  background-image: url("./assets/plm.png");
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
+}
+
+.bg {
+  background-image: url("./assets/plm.png");
+  min-height: 50vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.footerContainer {
+  background-image: url("./assets/plm.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: inset 0 0 0 2000px rgba(163, 25, 32, 0.8);
+  width: 100%;
+  margin: auto;
+}
+
+.link {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.footlinks {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.link {
+  display: block;
+  text-decoration: none;
+  color: var(--mantine-color-text);
+  line-height: var(--link-height);
+  font-size: var(--mantine-font-size-sm);
+  height: var(--link-height);
+  border-top-right-radius: var(--mantine-radius-sm);
+  border-bottom-right-radius: var(--mantine-radius-sm);
+  border-left: rem(2px) solid
+    light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
+}
+
+.link:hover {
+  background-color: light-dark(
+    var(--mantine-color-gray-0),
+    var(--mantine-color-dark-6)
+  );
+}
+
+.linkActive {
+  font-weight: 500;
+  color: light-dark(var(--mantine-color-blue-7), var(--mantine-color-blue-4));
+}
+
+.item {
+  color: #d5a106;
+
+  transform: translateX(0.5rem);
+  transition: transform 0.3s ease-in-out;
+}
+
+.item-out {
+  transform: translateX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu:hover {
+  color: #d5a106;
+  transition: 0.3s ease-in-out;
+}
+
+.text {
+  color: #fff;
+}
+
+.text:hover {
+  color: #d5a106;
+  transition: 0.2s ease-in-out;
+}
+
+.loading {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
