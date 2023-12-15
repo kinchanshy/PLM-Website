@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Text, Container, Button } from "@mantine/core";
 import { useWindowScroll } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import HomeText from "../components/HomeText";
+import HomeText from "../components/HomeComponents/HomeText";
 import Footer from "../components/Footer";
+import HomeNews from "../components/HomeComponents/HomeNews";
+import HomeSeal from "../components/HomeComponents/HomeSeal";
+import GotoTop from "../components/GotoTop";
+import HomeCarousel from "../components/HomeComponents/HomeCarousel";
+import HomeArchive from "../components/HomeComponents/HomeArchive";
 
 function Home() {
   useEffect(() => {
@@ -49,8 +53,6 @@ function Home() {
   // This are the effects that are used on this page
   const [scroll, scrollTo] = useWindowScroll();
 
-  // This scroll effect will get triggered when you click the explore more button
-
   return (
     <div>
       <div>
@@ -88,13 +90,7 @@ function Home() {
         />
       </div>
       <div className="main">
-        <div
-          style={{
-            marginTop: "10rem",
-            position: "fixed",
-            zIndex: 0,
-          }}
-        >
+        <div className="main-text">
           {/* The Big Texts in the middle */}
           <HomeText
             Program={() => {
@@ -109,19 +105,23 @@ function Home() {
           />
         </div>
       </div>
-      <div
-        ref={targetDivRef}
-        style={{
-          width: "100%",
-          backgroundColor: "#fff",
-          position: "absolute",
-          zIndex: "1",
-          overflow: "auto",
-        }}
-      >
-        <div style={{ height: "50vh" }}>Hello</div>
-        <div style={{ height: "50vh" }}>Hi</div>
-        <Footer />
+      <div ref={targetDivRef} className="contents-container">
+        <>
+          <HomeNews />
+        </>
+        <div className="carousel">
+          <HomeCarousel />
+        </div>
+        <div className="seal">
+          <HomeSeal />
+        </div>
+        <>
+          <HomeArchive />
+        </>
+        <>
+          <GotoTop />
+          <Footer />
+        </>
       </div>
     </div>
   );

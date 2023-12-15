@@ -1,3 +1,38 @@
 * {
   margin: 0;
+  font-family: "Open Sans, sans-serif";
+}
+
+.date {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ffc60b;
+  border-radius: 0.5rem;
+  background-color: #ffc60b;
+}
+
+.announcements {
+  display: flex;
+}
+
+.archive-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.archive-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+.archive-button {
+  background-color: #006699;
+  margin-top: 1rem;
 }

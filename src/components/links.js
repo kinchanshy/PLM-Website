@@ -1,3 +1,14 @@
+import sample from "../assets/sample.jpg";
+import sample1 from "../assets/sample1.jpg";
+import sample2 from "../assets/sample2.jpg";
+import sample3 from "../assets/sample3.jpg";
+import sample4 from "../assets/sample4.jpg";
+import ex from "../assets/ex.jpg";
+import ex1 from "../assets/ex1.jpg";
+import ex2 from "../assets/ex2.jpg";
+import ex3 from "../assets/ex3.jpg";
+import Logo from "../assets/plm.png";
+
 export const menuItems = [
   {
     text: "ABOUT",
@@ -119,7 +130,10 @@ export const data = [
         link: "/admissions/scholarship-and-financial-aid",
       },
       { label: "Academic Calendar", link: "/academics/academic-calendar" },
-      { label: "University Map", link: "/university-map" },
+      {
+        label: "University Map",
+        link: "/about/university-profile/university-map",
+      },
     ],
   },
   {
@@ -146,4 +160,20 @@ export const footerLinks = [
   { label: "Privacy Policy", link: "/privacy-policy" },
   { label: "Terms of Use", link: "terms-of-use" },
   { label: "Citizen's Charter", link: "citizens-charter" },
+];
+
+export const updateSlides = [
+  { url: sample },
+  { url: sample1 },
+  { url: sample2 },
+  { url: sample3 },
+  { url: sample4 },
+];
+
+export const servicesSlides = [
+  { url: ex },
+  { url: ex1 },
+  { url: ex2 },
+  { url: ex3 },
+  { url: Logo },
 ];
