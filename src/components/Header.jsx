@@ -91,7 +91,14 @@ function Header({
                   key={index}
                   variant="transparent"
                   onClick={() => {
-                    navigate(Item.path);
+                    // navigate(Item.path);
+                    if (Item.onClick) {
+                      // If the item has an onClick function, execute it
+                      Item.onClick();
+                    } else {
+                      // Otherwise, navigate to the specified path
+                      navigate(Item.path);
+                    }
                   }}
                 >
                   <Text fz="md" fw="bold">

@@ -77,6 +77,41 @@ const ResearchShell = lazy(() => import("./ResearchLinks/ResearchShell"));
 const Theses = lazy(() => import("./ResearchLinks/Theses"));
 const DownloadShell = lazy(() => import("./Downloads/DownloadShell"));
 const Error = lazy(() => import("./Error"));
+const StudentShell = lazy(() =>
+  import("./OtherLinks/StudentsLinks/StudentShell")
+);
+const Students = lazy(() => import("./OtherLinks/StudentsLinks/Students"));
+const StudentManual = lazy(() =>
+  import("./OtherLinks/StudentsLinks/StudentManual")
+);
+const Tuition = lazy(() => import("./OtherLinks/StudentsLinks/Tuition"));
+const Services = lazy(() => import("./OtherLinks/StudentsLinks/Services"));
+const NSTP = lazy(() => import("./OtherLinks/StudentsLinks/NSTP"));
+const SSC = lazy(() => import("./OtherLinks/StudentsLinks/SSC"));
+const Org = lazy(() => import("./OtherLinks/StudentsLinks/Org"));
+const Evaluation = lazy(() => import("./OtherLinks/StudentsLinks/Evaluation"));
+const StudentCRS = lazy(() => import("./OtherLinks/StudentsLinks/StudentCRS"));
+const FacultyShell = lazy(() =>
+  import("./OtherLinks/FacultyLinks/FacultyShell")
+);
+const Faculty = lazy(() => import("./OtherLinks/FacultyLinks/Faculty"));
+const Policies = lazy(() => import("./OtherLinks/FacultyLinks/Policies"));
+const FacultyManual = lazy(() =>
+  import("./OtherLinks/FacultyLinks/FacultyManual")
+);
+const List = lazy(() => import("./OtherLinks/FacultyLinks/List"));
+const Alumni = lazy(() => import("./OtherLinks/AlumniLinks/Alumni"));
+const PartnersShell = lazy(() =>
+  import("./OtherLinks/PartnersLinks/PartnersShell")
+);
+const Partners = lazy(() => import("./OtherLinks/PartnersLinks/Partners"));
+const CommunityShell = lazy(() =>
+  import("./OtherLinks/CommunityLinks/CommunityShell")
+);
+const Campus = lazy(() => import("./OtherLinks/CommunityLinks/Campus"));
+const Events = lazy(() => import("./OtherLinks/CommunityLinks/Events"));
+const Sports = lazy(() => import("./OtherLinks/CommunityLinks/Sports"));
+const VISA = lazy(() => import("./OtherLinks/CommunityLinks/VISA"));
 
 export const Routing = [
   {
@@ -344,6 +379,106 @@ export const Routing = [
   {
     path: "downloads",
     element: DownloadShell,
+  },
+  {
+    path: "/students",
+    element: StudentShell,
+    children: [
+      {
+        path: "students-overview",
+        element: Students,
+      },
+      {
+        path: "student-manual",
+        element: StudentManual,
+      },
+      {
+        path: "tuition-and-other-fees",
+        element: Tuition,
+      },
+      {
+        path: "student-services",
+        element: Services,
+      },
+      {
+        path: "national-service-training-program",
+        element: NSTP,
+      },
+      {
+        path: "student-council",
+        element: SSC,
+      },
+      {
+        path: "student-organization",
+        element: Org,
+      },
+      {
+        path: "students-faculity-evaluation-system",
+        element: Evaluation,
+      },
+      {
+        path: "crs",
+        element: StudentCRS,
+      },
+    ],
+  },
+  // {
+  //   path: "/faculty",
+  //   element: FacultyShell,
+  //   children: [
+  //     {
+  //       path: "faculty-overview",
+  //       element: Faculty,
+  //     },
+  //     {
+  //       path: "faculty-policies",
+  //       element: Policies,
+  //     },
+  //     {
+  //       path: "faculty-manual",
+  //       element: FacultyManual,
+  //     },
+  //     {
+  //       path: "list-of-faculties",
+  //       element: List,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: "alumni",
+  //   element: Alumni,
+  // },
+  {
+    path: "/",
+    element: PartnersShell,
+    children: [
+      {
+        path: "partners",
+        element: Partners,
+      },
+    ],
+  },
+  {
+    path: "/community",
+    element: CommunityShell,
+    children: [
+      {
+        path: "campus",
+        element: Campus,
+      },
+      {
+        path: "events",
+        element: Events,
+      },
+      {
+        path: "sports",
+        element: Sports,
+      },
+      {
+        path: "immigration-and-visa",
+        element: VISA,
+      },
+    ],
   },
   {
     path: "*",

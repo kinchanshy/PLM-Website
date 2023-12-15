@@ -112,12 +112,20 @@ export const suggestions = [
 ];
 
 export const Items = [
-  { label: "STUDENTS", path: "/students" },
-  { label: "FACULTY", path: "/faculty" },
-  { label: "ALUMNI", path: "/alumni" },
+  { label: "STUDENTS", path: "/students/students-overview" },
+  // { label: "FACULTY", path: "/faculty/faculty-overview" },
+  // { label: "ALUMNI", path: "/alumni" },
   { label: "PARTNERS", path: "/partners" },
-  { label: "COMMUNITY", path: "/community" },
-  { label: "PLM EMAIL LOGIN", path: "/plm-email-login" },
+  { label: "COMMUNITY", path: "/community/campus" },
+  {
+    label: "PLM EMAIL LOGIN",
+    path: "/plm-email-login",
+    onClick: () => {
+      window.open(
+        "https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&redirect_uri=https%3a%2f%2foutlook.office.com%2fowa%2f&resource=00000002-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code+id_token&scope=openid&msafed=1&msaredir=1&client-request-id=d62cb49f-8a26-f288-697e-808e9a1151ce&protectedtoken=true&claims=%7b%22id_token%22%3a%7b%22xms_cc%22%3a%7b%22values%22%3a%5b%22CP1%22%5d%7d%7d%7d&domain_hint=plm.edu.ph&nonce=638382509292497052.bd98a665-e49d-4a89-aed7-50e26d69bc23&state=DctLDoAgDADRogfwJHxSoLTHAdvEhUY3xuvL4s1uHACs0zK5NAONMmfGmgQFi7RUMQwV7kTVWxH1pbP4btp8TYakJGPH7Oa7xfvr8TmvYPqG5_gB"
+      );
+    },
+  },
 ];
 
 export const data = [
