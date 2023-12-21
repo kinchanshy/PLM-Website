@@ -4,6 +4,7 @@ import { Text, Divider, Space, Container } from "@mantine/core";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Downloads from "./Downloads";
+import QuickLinks from "../../components/QuickLinks";
 
 function DownloadShell() {
   const navigate = useNavigate();
@@ -114,7 +115,7 @@ function DownloadShell() {
             </div>
           </div>
         </div>
-        <div></div>
+        <QuickLinks />
       </div>
       <Footer />
     </>

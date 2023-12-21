@@ -14,6 +14,7 @@ import {
   Space,
   ScrollArea,
 } from "@mantine/core";
+import { useWindowScroll } from "@mantine/hooks";
 import PLMAT from "./PLMAT";
 import MCAT from "./MCAT";
 import CLAT from "./CLAT";
@@ -24,6 +25,7 @@ import Nav from "../../components/Nav";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/Footer";
 import AdmissionOverview from "./AdmissionOverview";
+import QuickLinks from "../../components/QuickLinks";
 
 function AdmissionsShell() {
   const navigate = useNavigate();
@@ -36,11 +38,26 @@ function AdmissionsShell() {
     setSelectedLink(link);
   };
 
+  const handleScrollToTop = () => {
+    if (targetDivRef.current) {
+      const navHeight = 75; // Replace with your actual navigation bar height
+      const targetDivOffset = targetDivRef.current.offsetTop - navHeight;
+      window.scrollTo({ top: targetDivOffset, behavior: "smooth" });
+    }
+  };
+
   const handleScroll = () => {
     if (targetDivRef.current) {
       const rect = targetDivRef.current.getBoundingClientRect();
       // Adjust the conditions as needed
       setIsSolidBackground(rect.top <= 85); // Set to solid when the targetDivRef is at or above the top of the viewport
+      if (
+        rect.top <= 0 &&
+        rect.bottom >= window.innerHeight &&
+        rect.height < window.innerHeight
+      ) {
+        handleScrollToTop();
+      }
     }
   };
 
@@ -144,6 +161,7 @@ function AdmissionsShell() {
                 links={links}
                 onLinkClick={handleLinkClick}
                 currentRoute={location.pathname}
+                scrollToTop={handleScrollToTop}
               />
             </div>
             <div>
@@ -172,7 +190,7 @@ function AdmissionsShell() {
             </div>
           </div>
         </div>
-        <div></div>
+        <QuickLinks />
       </div>
       <Footer />
     </>

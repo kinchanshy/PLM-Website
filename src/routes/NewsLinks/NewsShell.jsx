@@ -14,6 +14,7 @@ import {
   Space,
   ScrollArea,
 } from "@mantine/core";
+import { useWindowScroll } from "@mantine/hooks";
 import PressRelease from "./PressRelease";
 import Gallery from "./Gallery";
 import { links } from "./links";
@@ -24,6 +25,7 @@ import Reports from "./Reports";
 import NewsLetter from "./NewsLetter";
 import Announcements from "./Announcements";
 import Message from "./Message";
+import QuickLinks from "../../components/QuickLinks";
 
 function NewsShell() {
   const navigate = useNavigate();
@@ -36,11 +38,26 @@ function NewsShell() {
     setSelectedLink(link);
   };
 
+  const handleScrollToTop = () => {
+    if (targetDivRef.current) {
+      const navHeight = 75; // Replace with your actual navigation bar height
+      const targetDivOffset = targetDivRef.current.offsetTop - navHeight;
+      window.scrollTo({ top: targetDivOffset, behavior: "smooth" });
+    }
+  };
+
   const handleScroll = () => {
     if (targetDivRef.current) {
       const rect = targetDivRef.current.getBoundingClientRect();
       // Adjust the conditions as needed
       setIsSolidBackground(rect.top <= 85); // Set to solid when the targetDivRef is at or above the top of the viewport
+      if (
+        rect.top <= 0 &&
+        rect.bottom >= window.innerHeight &&
+        rect.height < window.innerHeight
+      ) {
+        handleScrollToTop();
+      }
     }
   };
 
@@ -144,6 +161,7 @@ function NewsShell() {
                 links={links}
                 onLinkClick={handleLinkClick}
                 currentRoute={location.pathname}
+                scrollToTop={handleScrollToTop}
               />
             </div>
             <div>
@@ -163,7 +181,7 @@ function NewsShell() {
             </div>
           </div>
         </div>
-        <div></div>
+        <QuickLinks />
       </div>
       <Footer />
     </>

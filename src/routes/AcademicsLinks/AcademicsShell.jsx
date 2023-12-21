@@ -28,6 +28,7 @@ import CM from "./CollegeLinks/CM";
 import SG from "./CollegeLinks/SG";
 import SPH from "./CollegeLinks/SPH";
 import Sidebar from "../../components/Sidebar";
+import QuickLinks from "../../components/QuickLinks";
 
 function AcademicsShell() {
   const navigate = useNavigate();
@@ -51,11 +52,27 @@ function AcademicsShell() {
     setActiveSidebarIndex(index);
   };
 
+  const handleScrollToTop = () => {
+    if (targetDivRef.current) {
+      // const targetDivOffset = targetDivRef.current.offsetTop;
+      const navHeight = 75; // Replace with your actual navigation bar height
+      const targetDivOffset = targetDivRef.current.offsetTop - navHeight;
+      window.scrollTo({ top: targetDivOffset, behavior: "smooth" });
+    }
+  };
+
   const handleScroll = () => {
     if (targetDivRef.current) {
       const rect = targetDivRef.current.getBoundingClientRect();
       // Adjust the conditions as needed
       setIsSolidBackground(rect.top <= 85); // Set to solid when the targetDivRef is at or above the top of the viewport
+      if (
+        rect.top <= 0 &&
+        rect.bottom >= window.innerHeight &&
+        rect.height < window.innerHeight
+      ) {
+        handleScrollToTop();
+      }
     }
   };
 
@@ -154,9 +171,18 @@ function AcademicsShell() {
           >
             <Divider size="sm" />
           </div>
-          <Grid columns={24}>
-            <Grid.Col span={6}>
-              <Container>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "start",
+              gap: "2rem",
+              backgroundColor: "#fff",
+              zIndex: "1",
+              height: "100vh",
+            }}
+          >
+            <div style={{ minWidth: "30vw", position: "sticky", top: "0" }}>
+              <>
                 <Sidebar
                   title={selectedLink}
                   links={links}
@@ -164,10 +190,11 @@ function AcademicsShell() {
                   onSublinkClick={handleSublinkClick}
                   selectedSublink={selectedSublink}
                   currentRoute={location.pathname}
+                  scrollToTop={handleScrollToTop}
                 />
-              </Container>
-            </Grid.Col>
-            <Grid.Col span="auto">
+              </>
+            </div>
+            <div>
               <div style={{ height: "100vh", width: "100%" }}>
                 <Container>
                   <Routes>
@@ -214,9 +241,9 @@ function AcademicsShell() {
                   </Routes>
                 </Container>
               </div>
-            </Grid.Col>
-          </Grid>
-          <div></div>
+            </div>
+          </div>
+          <QuickLinks />
         </div>
       </div>
       <Footer />

@@ -63,7 +63,7 @@ export const links = [
       },
       {
         label: "Director and Chiefs",
-        link: "/about/administration/director-and-chiefs",
+        link: "/about/administration/directors-and-chiefs",
       },
       {
         label: "Deans",

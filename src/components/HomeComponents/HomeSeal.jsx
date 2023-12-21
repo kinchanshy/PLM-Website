@@ -38,7 +38,14 @@ function HomeSeal() {
           </Text>
           {""} In case of complaints, please submit proof or any supporting
           documents through this {""}
-          <Text span fw="bold" style={{ cursor: "pointer" }}>
+          <Text
+            span
+            fw="bold"
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              navigate("/anti-red-tape-act-compliance");
+            }}
+          >
             link
           </Text>
           .

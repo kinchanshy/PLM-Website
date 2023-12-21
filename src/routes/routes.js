@@ -112,6 +112,29 @@ const Campus = lazy(() => import("./OtherLinks/CommunityLinks/Campus"));
 const Events = lazy(() => import("./OtherLinks/CommunityLinks/Events"));
 const Sports = lazy(() => import("./OtherLinks/CommunityLinks/Sports"));
 const VISA = lazy(() => import("./OtherLinks/CommunityLinks/VISA"));
+const CharterShell = lazy(() => import("./Footer/Charter/CharterShell"));
+const CitizensCharter = lazy(() => import("./Footer/Charter/CitizensCharter"));
+const ARTACShell = lazy(() => import("./OtherLinks/ActCompliance/ARTACShell"));
+const ARTAC = lazy(() => import("./OtherLinks/ActCompliance/ARTAC"));
+const CareersShell = lazy(() => import("./QuickLinks/Careers/CareersShell"));
+const CareersPLM = lazy(() => import("./QuickLinks/Careers/CareersPLM"));
+const CareersAlumni = lazy(() => import("./QuickLinks/Careers/CareersAlumni"));
+const ProcurementShell = lazy(() =>
+  import("./QuickLinks/Procurement/ProcurementShell")
+);
+const Annual = lazy(() => import("./QuickLinks/Procurement/Annual"));
+const Competitive = lazy(() => import("./QuickLinks/Procurement/Competitive"));
+const Alternative = lazy(() => import("./QuickLinks/Procurement/Alternative"));
+const Notice = lazy(() => import("./QuickLinks/Procurement/Notice"));
+const Bids = lazy(() => import("./QuickLinks/Procurement/Bids"));
+const ContactShell = lazy(() => import("./QuickLinks/ContactUs/ContactShell"));
+const ContactUs = lazy(() => import("./QuickLinks/ContactUs/ContactUs"));
+const GuideShell = lazy(() => import("./Footer/SiteGuide/GuideShell"));
+const Guide = lazy(() => import("./Footer/SiteGuide/Guide"));
+const PrivacyShell = lazy(() => import("./Footer/PrivacyPolicy/PrivacyShell"));
+const Privacy = lazy(() => import("./Footer/PrivacyPolicy/Privacy"));
+const TermsShell = lazy(() => import("./Footer/TermsOfUse/TermsShell"));
+const Terms = lazy(() => import("./Footer/TermsOfUse/Terms"));
 
 export const Routing = [
   {
@@ -127,7 +150,7 @@ export const Routing = [
         element: Profile,
         children: [
           {
-            path: "vision-mission",
+            path: "vision-and-mission",
             element: VM,
           },
           {
@@ -181,7 +204,7 @@ export const Routing = [
             element: President,
           },
           {
-            path: "vice-presidents-&-assistant-vice-presidents",
+            path: "vice-president-&-assistant-vice-presidents",
             element: VP,
           },
           {
@@ -477,6 +500,106 @@ export const Routing = [
       {
         path: "immigration-and-visa",
         element: VISA,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: CharterShell,
+    children: [
+      {
+        path: "citizens-charter",
+        element: CitizensCharter,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: ARTACShell,
+    children: [
+      {
+        path: "anti-red-tape-act-compliance",
+        element: ARTAC,
+      },
+    ],
+  },
+  {
+    path: "/careers",
+    element: CareersShell,
+    children: [
+      {
+        path: "careers-in-plm",
+        element: CareersPLM,
+      },
+      {
+        path: "careers-for-alumni",
+        element: CareersAlumni,
+      },
+    ],
+  },
+  {
+    path: "/procurement",
+    element: ProcurementShell,
+    children: [
+      {
+        path: "annual-procurement-plan",
+        element: Annual,
+      },
+      {
+        path: "competitive-bidding",
+        element: Competitive,
+      },
+      {
+        path: "alternative-method-of-procurement",
+        element: Alternative,
+      },
+      {
+        path: "notice-of-award-and-related-issuances",
+        element: Notice,
+      },
+      {
+        path: "bids-and-awards-committee-meetings",
+        element: Bids,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: ContactShell,
+    children: [
+      {
+        path: "contact-us",
+        element: ContactUs,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: GuideShell,
+    children: [
+      {
+        path: "site-guide",
+        element: Guide,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: PrivacyShell,
+    children: [
+      {
+        path: "privacy-policy",
+        element: Privacy,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: TermsShell,
+    children: [
+      {
+        path: "terms-of-use",
+        element: Terms,
       },
     ],
   },

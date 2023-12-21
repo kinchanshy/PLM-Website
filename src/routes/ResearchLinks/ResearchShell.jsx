@@ -10,6 +10,7 @@ import { Text, Divider, Space, Container } from "@mantine/core";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
 import Theses from "./Theses";
+import QuickLinks from "../../components/QuickLinks";
 
 function ResearchShell() {
   const navigate = useNavigate();
@@ -138,7 +139,7 @@ function ResearchShell() {
             </div>
           </div>
         </div>
-        <div></div>
+        <QuickLinks />
       </div>
       <Footer />
     </>

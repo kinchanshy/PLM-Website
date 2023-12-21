@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, Button, Text } from "@mantine/core";
+import { useWindowScroll } from "@mantine/hooks";
 import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { menuItems } from "./links";
@@ -9,6 +10,12 @@ function Menus({ color, fsize }) {
   const location = useLocation();
   const [hoveredItem, setHoveredItem] = useState(null);
   const [MenuOpen, setMenuOpen] = useState(Array(menuItems.length).fill(false));
+  const { y: scrollY } = useWindowScroll();
+
+  // Function to scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -85,6 +92,7 @@ function Menus({ color, fsize }) {
                   key={itemIndex}
                   onClick={() => {
                     navigate(item.link);
+                    scrollToTop();
                   }}
                 >
                   <Text

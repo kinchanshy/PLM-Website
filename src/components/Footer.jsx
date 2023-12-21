@@ -15,10 +15,17 @@ import {
   IconBrandX,
 } from "@tabler/icons-react";
 import logo from "../assets/PLMLogoText1.png";
+import { useWindowScroll } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
 import { data, footerLinks } from "./links";
 
 function Footer() {
+  const { y: scrollY } = useWindowScroll();
+
+  // Function to scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const navigate = useNavigate();
   const footerLinkElements = footerLinks.map((link, index) => (
     <Text
@@ -61,7 +68,12 @@ function Footer() {
         href={link.link}
         onClick={(event) => {
           event.preventDefault();
-          navigate(link.link);
+          if (link.onClick) {
+            link.onClick();
+          } else {
+            navigate(link.link);
+          }
+          scrollToTop();
         }}
       >
         {link.label}

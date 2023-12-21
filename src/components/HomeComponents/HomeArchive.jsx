@@ -15,7 +15,7 @@ function HomeArchive() {
           <Button
             className="archive-button"
             onClick={() => {
-              navigate("/archive");
+              window.open("https://archive.plm.edu.ph/", "_blank");
             }}
             radius="md"
           >

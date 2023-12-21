@@ -4,11 +4,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Text, Space, Divider, Container } from "@mantine/core";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
-import Partners from "./Partners";
-import QuickLinks from "../../../components/QuickLinks";
+import CitizensCharter from "./CitizensCharter";
 import Nav from "../../../components/Nav";
+import QuickLinks from "../../../components/QuickLinks";
 
-function PartnersShell() {
+function CharterShell() {
   const navigate = useNavigate();
   const targetDivRef = useRef(null);
   const location = useLocation();
@@ -86,7 +86,7 @@ function PartnersShell() {
             <Divider size="md" color="#FFC60B" orientation="vertical" />
             <Space w="sm" />
             <Text c="#fff" fw="bold" fz="3rem">
-              PARTNERS
+              CITIZEN'S CHARTER
             </Text>
           </div>
         </div>
@@ -109,7 +109,7 @@ function PartnersShell() {
             <Text c="gray">⚬</Text>
             <Space w="sm" />
             <Text fz="lg" ff="Open Sans">
-              Partners
+              Citizen's Charter
             </Text>
           </div>
           <div
@@ -123,7 +123,7 @@ function PartnersShell() {
           </div>
           <div style={{ height: "100vh", backgroundColor: "#fff" }}>
             <Container>
-              <Partners />
+              <CitizensCharter />
             </Container>
           </div>
           <QuickLinks />
@@ -134,4 +134,4 @@ function PartnersShell() {
   );
 }
 
-export default PartnersShell;
+export default CharterShell;

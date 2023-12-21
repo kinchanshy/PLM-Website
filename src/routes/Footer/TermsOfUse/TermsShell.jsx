@@ -4,11 +4,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Text, Space, Divider, Container } from "@mantine/core";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
-import Partners from "./Partners";
-import QuickLinks from "../../../components/QuickLinks";
+import Terms from "./Terms";
 import Nav from "../../../components/Nav";
+import QuickLinks from "../../../components/QuickLinks";
 
-function PartnersShell() {
+function TermsShell() {
   const navigate = useNavigate();
   const targetDivRef = useRef(null);
   const location = useLocation();
@@ -86,7 +86,7 @@ function PartnersShell() {
             <Divider size="md" color="#FFC60B" orientation="vertical" />
             <Space w="sm" />
             <Text c="#fff" fw="bold" fz="3rem">
-              PARTNERS
+              TERMS OF USE
             </Text>
           </div>
         </div>
@@ -109,7 +109,7 @@ function PartnersShell() {
             <Text c="gray">⚬</Text>
             <Space w="sm" />
             <Text fz="lg" ff="Open Sans">
-              Partners
+              Terms of Use
             </Text>
           </div>
           <div
@@ -123,7 +123,7 @@ function PartnersShell() {
           </div>
           <div style={{ height: "100vh", backgroundColor: "#fff" }}>
             <Container>
-              <Partners />
+              <Terms />
             </Container>
           </div>
           <QuickLinks />
@@ -134,4 +134,4 @@ function PartnersShell() {
   );
 }
 
-export default PartnersShell;
+export default TermsShell;

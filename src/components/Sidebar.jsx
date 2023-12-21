@@ -1,15 +1,29 @@
 import cx from "clsx";
 import React, { useState, useEffect, useRef } from "react";
+// import { useWindowScroll } from "@mantine/hooks";
 import { Box, Text, Divider } from "@mantine/core";
 import { useNavigate, useLocation } from "react-router-dom";
 import classes from "../../src/App.module.css";
 
-function Sidebar({ links, onLinkClick, onSublinkClick, title, currentRoute }) {
+function Sidebar({
+  links,
+  onLinkClick,
+  onSublinkClick,
+  title,
+  currentRoute,
+  scrollToTop,
+}) {
   const [active, setActive] = useState(null);
   const [activeSublink, setActiveSublink] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
   const sublinkClickedRef = useRef(false);
+  // const { y: scrollY } = useWindowScroll();
+
+  // // Function to scroll to top
+  // const scrollToTop = () => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // };
 
   useEffect(() => {
     // Find the index of the current route in links
@@ -31,6 +45,7 @@ function Sidebar({ links, onLinkClick, onSublinkClick, title, currentRoute }) {
       onLinkClick(currentLink.label);
       navigate(currentLink.link);
     }
+    scrollToTop();
   };
 
   const handleSublinkClick = (sublinkLabel, sublinkLink) => {
@@ -38,6 +53,7 @@ function Sidebar({ links, onLinkClick, onSublinkClick, title, currentRoute }) {
     onSublinkClick(sublinkLabel);
     navigate(sublinkLink);
     sublinkClickedRef.current = true;
+    scrollToTop();
   };
 
   useEffect(() => {

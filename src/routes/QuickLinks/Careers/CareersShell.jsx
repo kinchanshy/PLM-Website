@@ -1,14 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useWindowScroll } from "@mantine/hooks";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Text, Space, Divider, Container } from "@mantine/core";
+import {
+  useNavigate,
+  useLocation,
+  Routes,
+  Route,
+  Outlet,
+} from "react-router-dom";
+import { Text, Space, Divider, Container, Grid } from "@mantine/core";
+import { links } from "./links";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
-import Partners from "./Partners";
+import Sidebar from "../../../components/Sidebar";
+import CareersPLM from "./CareersPLM";
+import CareersAlumni from "./CareersAlumni";
 import QuickLinks from "../../../components/QuickLinks";
 import Nav from "../../../components/Nav";
 
-function PartnersShell() {
+function CareersShell() {
   const navigate = useNavigate();
   const targetDivRef = useRef(null);
   const location = useLocation();
@@ -86,7 +95,7 @@ function PartnersShell() {
             <Divider size="md" color="#FFC60B" orientation="vertical" />
             <Space w="sm" />
             <Text c="#fff" fw="bold" fz="3rem">
-              PARTNERS
+              CAREERS
             </Text>
           </div>
         </div>
@@ -109,7 +118,13 @@ function PartnersShell() {
             <Text c="gray">⚬</Text>
             <Space w="sm" />
             <Text fz="lg" ff="Open Sans">
-              Partners
+              Careers
+            </Text>
+            <Space w="sm" />
+            <Text c="gray">⚬</Text>
+            <Space w="sm" />
+            <Text fz="lg" ff="Open Sans">
+              {selectedLink}
             </Text>
           </div>
           <div
@@ -122,9 +137,33 @@ function PartnersShell() {
             <Divider size="sm" />
           </div>
           <div style={{ height: "100vh", backgroundColor: "#fff" }}>
-            <Container>
-              <Partners />
-            </Container>
+            <Grid columns={24}>
+              <Grid.Col span={6}>
+                <Container>
+                  <Sidebar
+                    title={selectedLink}
+                    links={links}
+                    onLinkClick={handleLinkClick}
+                    currentRoute={location.pathname}
+                  />
+                </Container>
+              </Grid.Col>
+              <Grid.Col span="auto">
+                <div style={{ height: "100vh", width: "100%" }}>
+                  <Container>
+                    <Routes>
+                      <Route path="/" element={<Outlet />}>
+                        <Route path="careers-in-plm" element={<CareersPLM />} />
+                        <Route
+                          path="careers-for-alumni"
+                          element={<CareersAlumni />}
+                        />
+                      </Route>
+                    </Routes>
+                  </Container>
+                </div>
+              </Grid.Col>
+            </Grid>
           </div>
           <QuickLinks />
         </div>
@@ -134,4 +173,4 @@ function PartnersShell() {
   );
 }
 
-export default PartnersShell;
+export default CareersShell;

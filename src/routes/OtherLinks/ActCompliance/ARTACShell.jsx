@@ -4,11 +4,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Text, Space, Divider, Container } from "@mantine/core";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
-import Partners from "./Partners";
+import ARTAC from "./ARTAC";
 import QuickLinks from "../../../components/QuickLinks";
-import Nav from "../../../components/Nav";
 
-function PartnersShell() {
+function ARTACShell() {
   const navigate = useNavigate();
   const targetDivRef = useRef(null);
   const location = useLocation();
@@ -22,37 +21,37 @@ function PartnersShell() {
     setSelectedSublink(null); // Reset selected sublink when changing main links
   };
 
-  const handleScrollToTop = () => {
-    if (targetDivRef.current) {
-      const navHeight = 75; // Replace with your actual navigation bar height
-      const targetDivOffset = targetDivRef.current.offsetTop - navHeight;
-      window.scrollTo({ top: targetDivOffset, behavior: "smooth" });
-    }
-  };
+  const [scroll, scrollTo] = useWindowScroll();
 
-  const handleScroll = () => {
-    if (targetDivRef.current) {
-      const rect = targetDivRef.current.getBoundingClientRect();
-      // Adjust the conditions as needed
-      setIsSolidBackground(rect.top <= 85); // Set to solid when the targetDivRef is at or above the top of the viewport
-      if (
-        rect.top <= 0 &&
-        rect.bottom >= window.innerHeight &&
-        rect.height < window.innerHeight
-      ) {
-        handleScrollToTop();
-      }
-    }
-  };
+  const [navBackgroundTop, setNavBackgroundTop] = useState(
+    "HeaderTransparentTop"
+  );
+  const [navBackgroundBot, setNavBackgroundBot] = useState(
+    "HeaderTransparentBot"
+  );
+  const [isHeaderBotVisible, setHeaderBotVisible] = useState(true);
+  const navRefTop = useRef(navBackgroundTop);
+  navRefTop.current = navBackgroundTop;
+  const navRefBot = useRef(navBackgroundBot);
+  navRefBot.current = navBackgroundBot;
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const targetDivPosition = targetDivRef.current.offsetTop - 100;
+      const show = window.scrollY > targetDivPosition;
 
-    // Initial setup
-    handleScroll();
+      if (show) {
+        setNavBackgroundTop("HeaderSolidTop");
+        setHeaderBotVisible(false);
+      } else {
+        setNavBackgroundTop("HeaderTransparentTop");
+        setHeaderBotVisible(true);
+      }
+    };
 
+    document.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -63,15 +62,37 @@ function PartnersShell() {
   return (
     <div>
       <div style={{ height: "150vh", overflow: "hidden" }}>
-        <Nav
-          style={{
-            backgroundColor: isSolidBackground ? "#fff" : "transparent",
-            boxShadow: isSolidBackground
-              ? "0 4px 4px rgba(0, 0, 0, 0.2)"
-              : "none",
+        <Header
+          topStyle={{
+            background:
+              navBackgroundTop === "HeaderTransparentTop"
+                ? "rgba(0, 0, 0, 0.5)"
+                : "#fff",
+            "& .menuText:hover": {
+              color:
+                navBackgroundTop === "HeaderSolidTop" ? "#d5a106" : "#022f76",
+              transition: "0.3s ease-in-out",
+            },
+            boxShadow:
+              navBackgroundTop === "HeaderSolidTop"
+                ? "0 4px 4px rgba(0, 0, 0, 0.2)"
+                : "none",
+            zIndex: navBackgroundTop === "HeaderSolidTop" ? 1 : "unset",
           }}
-          color={isSolidBackground ? "#022f76" : "#fff"}
-          sColor={isSolidBackground ? "#022f76" : "#fff"}
+          botStyle={{
+            background:
+              navBackgroundBot === "HeaderTransparentBot"
+                ? "linear-gradient(to bottom, rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0))"
+                : "#f9f8f8",
+            "& .menuText:hover": {
+              color:
+                navBackgroundBot === "HeaderSolidBot" ? "#d5a106" : "#022f76",
+              transition: "0.3s ease-in-out",
+            },
+          }}
+          menuColor={navBackgroundTop === "HeaderSolidTop" ? "#022f76" : "#fff"}
+          searchColor={navBackgroundTop === "HeaderSolidTop" ? "#000" : "#fff"}
+          isHeaderBotVisible={isHeaderBotVisible}
         />
         <div className="bg">
           <div
@@ -86,7 +107,7 @@ function PartnersShell() {
             <Divider size="md" color="#FFC60B" orientation="vertical" />
             <Space w="sm" />
             <Text c="#fff" fw="bold" fz="3rem">
-              PARTNERS
+              ANTI-RED TAPE ACT COMPLIANCE
             </Text>
           </div>
         </div>
@@ -109,7 +130,7 @@ function PartnersShell() {
             <Text c="gray">⚬</Text>
             <Space w="sm" />
             <Text fz="lg" ff="Open Sans">
-              Partners
+              Citizen's Charter
             </Text>
           </div>
           <div
@@ -123,7 +144,7 @@ function PartnersShell() {
           </div>
           <div style={{ height: "100vh", backgroundColor: "#fff" }}>
             <Container>
-              <Partners />
+              <ARTAC />
             </Container>
           </div>
           <QuickLinks />
@@ -134,4 +155,4 @@ function PartnersShell() {
   );
 }
 
-export default PartnersShell;
+export default ARTACShell;

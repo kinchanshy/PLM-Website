@@ -147,9 +147,15 @@ export const data = [
   {
     title: "‎",
     links: [
-      { label: "Archive", link: "/archive" },
-      { label: "Careers", link: "/careers" },
-      { label: "Procurement", link: "/procurement" },
+      {
+        label: "Archive",
+        link: "/archive",
+        onClick: () => {
+          window.open("https://archive.plm.edu.ph/", "_blank");
+        },
+      },
+      { label: "Careers", link: "/careers/careers-in-plm" },
+      { label: "Procurement", link: "/procurement/annual-procurement-plan" },
     ],
   },
   {

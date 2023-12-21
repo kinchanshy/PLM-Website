@@ -21,6 +21,8 @@ import Org from "./Org";
 import Evaluation from "./Evaluation";
 import StudentCRS from "./StudentCRS";
 import Header from "../../../components/Header";
+import QuickLinks from "../../../components/QuickLinks";
+import Nav from "../../../components/Nav";
 
 function StudentShell() {
   const navigate = useNavigate();
@@ -36,37 +38,37 @@ function StudentShell() {
     setSelectedSublink(null); // Reset selected sublink when changing main links
   };
 
-  const [scroll, scrollTo] = useWindowScroll();
+  const handleScrollToTop = () => {
+    if (targetDivRef.current) {
+      const navHeight = 75; // Replace with your actual navigation bar height
+      const targetDivOffset = targetDivRef.current.offsetTop - navHeight;
+      window.scrollTo({ top: targetDivOffset, behavior: "smooth" });
+    }
+  };
 
-  const [navBackgroundTop, setNavBackgroundTop] = useState(
-    "HeaderTransparentTop"
-  );
-  const [navBackgroundBot, setNavBackgroundBot] = useState(
-    "HeaderTransparentBot"
-  );
-  const [isHeaderBotVisible, setHeaderBotVisible] = useState(true);
-  const navRefTop = useRef(navBackgroundTop);
-  navRefTop.current = navBackgroundTop;
-  const navRefBot = useRef(navBackgroundBot);
-  navRefBot.current = navBackgroundBot;
+  const handleScroll = () => {
+    if (targetDivRef.current) {
+      const rect = targetDivRef.current.getBoundingClientRect();
+      // Adjust the conditions as needed
+      setIsSolidBackground(rect.top <= 85); // Set to solid when the targetDivRef is at or above the top of the viewport
+      if (
+        rect.top <= 0 &&
+        rect.bottom >= window.innerHeight &&
+        rect.height < window.innerHeight
+      ) {
+        handleScrollToTop();
+      }
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const targetDivPosition = targetDivRef.current.offsetTop - 100;
-      const show = window.scrollY > targetDivPosition;
+    window.addEventListener("scroll", handleScroll);
 
-      if (show) {
-        setNavBackgroundTop("HeaderSolidTop");
-        setHeaderBotVisible(false);
-      } else {
-        setNavBackgroundTop("HeaderTransparentTop");
-        setHeaderBotVisible(true);
-      }
-    };
+    // Initial setup
+    handleScroll();
 
-    document.addEventListener("scroll", handleScroll);
     return () => {
-      document.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -77,37 +79,15 @@ function StudentShell() {
   return (
     <div>
       <div style={{ height: "150vh", overflow: "hidden" }}>
-        <Header
-          topStyle={{
-            background:
-              navBackgroundTop === "HeaderTransparentTop"
-                ? "rgba(0, 0, 0, 0.5)"
-                : "#fff",
-            "& .menuText:hover": {
-              color:
-                navBackgroundTop === "HeaderSolidTop" ? "#d5a106" : "#022f76",
-              transition: "0.3s ease-in-out",
-            },
-            boxShadow:
-              navBackgroundTop === "HeaderSolidTop"
-                ? "0 4px 4px rgba(0, 0, 0, 0.2)"
-                : "none",
-            zIndex: navBackgroundTop === "HeaderSolidTop" ? 1 : "unset",
+        <Nav
+          style={{
+            backgroundColor: isSolidBackground ? "#fff" : "transparent",
+            boxShadow: isSolidBackground
+              ? "0 4px 4px rgba(0, 0, 0, 0.2)"
+              : "none",
           }}
-          botStyle={{
-            background:
-              navBackgroundBot === "HeaderTransparentBot"
-                ? "linear-gradient(to bottom, rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0))"
-                : "#f9f8f8",
-            "& .menuText:hover": {
-              color:
-                navBackgroundBot === "HeaderSolidBot" ? "#d5a106" : "#022f76",
-              transition: "0.3s ease-in-out",
-            },
-          }}
-          menuColor={navBackgroundTop === "HeaderSolidTop" ? "#022f76" : "#fff"}
-          searchColor={navBackgroundTop === "HeaderSolidTop" ? "#000" : "#fff"}
-          isHeaderBotVisible={isHeaderBotVisible}
+          color={isSolidBackground ? "#022f76" : "#fff"}
+          sColor={isSolidBackground ? "#022f76" : "#fff"}
         />
         <div className="bg">
           <div
@@ -189,7 +169,7 @@ function StudentShell() {
                 <Container>
                   <Routes>
                     <Route path="/" element={<Outlet />}>
-                      <Route path="students" element={<Students />} />
+                      <Route path="students-overview" element={<Students />} />
                       <Route
                         path="student-manual"
                         element={<StudentManual />}
@@ -216,7 +196,7 @@ function StudentShell() {
               </div>
             </Grid.Col>
           </Grid>
-          <div></div>
+          <QuickLinks />
         </div>
       </div>
       <Footer />
