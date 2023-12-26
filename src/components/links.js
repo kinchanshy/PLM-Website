@@ -7,7 +7,7 @@ import ex from "../assets/ex.jpg";
 import ex1 from "../assets/ex1.jpg";
 import ex2 from "../assets/ex2.jpg";
 import ex3 from "../assets/ex3.jpg";
-import Logo from "../assets/plm.png";
+import Logo from "../assets/logo/plm.png";
 
 export const menuItems = [
   {

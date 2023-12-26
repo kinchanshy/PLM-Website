@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Image, Button } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/PLMLogoText.png";
+import logo from "../assets/Logo/PLMLogoText.png";
 import Menus from "./Menus";
 import SearchBar from "./SearchBar";
 import { Items } from "./links";

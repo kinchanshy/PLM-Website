@@ -6,7 +6,15 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-import { Grid, Text, Space, Divider, Container } from "@mantine/core";
+import {
+  ScrollArea,
+  Text,
+  Space,
+  Divider,
+  Container,
+  Grid,
+  Button,
+} from "@mantine/core";
 import { links } from "./links";
 import Overview from "./Overview";
 import Colleges from "./Colleges";
@@ -38,14 +46,19 @@ function AcademicsShell() {
   const [selectedLink, setSelectedLink] = useState(null);
   const [selectedSublink, setSelectedSublink] = useState(null);
   const [activeSidebarIndex, setActiveSidebarIndex] = useState(null);
+  const viewport = useRef(null);
 
+  const scrollToTop = () =>
+    viewport.current.scrollTo({ top: 0, behavior: "smooth" });
   const handleLinkClick = (link) => {
     setSelectedLink(link);
     setSelectedSublink(null); // Reset selected sublink when changing main links
+    scrollToTop();
   };
 
   const handleSublinkClick = (sublink) => {
     setSelectedSublink(sublink); // Handle sublink selection
+    scrollToTop();
   };
 
   const handleSidebarLinkActivate = (index) => {
@@ -94,8 +107,8 @@ function AcademicsShell() {
   };
 
   return (
-    <div>
-      <div style={{ height: "150vh", overflow: "hidden" }}>
+    <>
+      <div style={{ overflow: "hidden" }}>
         <Nav
           style={{
             backgroundColor: isSolidBackground ? "#fff" : "transparent",
@@ -134,7 +147,11 @@ function AcademicsShell() {
           }}
         >
           <div
-            style={{ display: "flex", padding: "1.5rem", marginLeft: "1rem" }}
+            style={{
+              display: "flex",
+              padding: "1.5rem",
+              marginLeft: "1rem",
+            }}
           >
             <Text fz="lg" ff="Open Sans">
               Home
@@ -173,81 +190,115 @@ function AcademicsShell() {
           </div>
           <div
             style={{
-              display: "flex",
-              alignItems: "start",
-              gap: "2rem",
-              backgroundColor: "#fff",
-              zIndex: "1",
-              height: "100vh",
+              height: "80svh",
             }}
           >
-            <div style={{ minWidth: "30vw", position: "sticky", top: "0" }}>
-              <>
-                <Sidebar
-                  title={selectedLink}
-                  links={links}
-                  onLinkClick={handleLinkClick}
-                  onSublinkClick={handleSublinkClick}
-                  selectedSublink={selectedSublink}
-                  currentRoute={location.pathname}
-                  scrollToTop={handleScrollToTop}
-                />
-              </>
-            </div>
-            <div>
-              <div style={{ height: "100vh", width: "100%" }}>
-                <Container>
-                  <Routes>
-                    <Route path="/" element={<Outlet />}>
-                      {/* <Route index element={<Academics />} /> */}
-                      <Route path="academic-overview" element={<Overview />} />
-                      <Route path="colleges/*" element={<Outlet />}>
-                        <Route index element={<Colleges />} />
+            <ScrollArea
+              h="75svh"
+              scrollbarSize={1}
+              offsetScrollbars
+              viewportRef={viewport}
+            >
+              <Grid columns={24}>
+                <Grid.Col span={6}>
+                  <div>
+                    <Sidebar
+                      title={selectedLink}
+                      links={links}
+                      onLinkClick={handleLinkClick}
+                      onSublinkClick={handleSublinkClick}
+                      selectedSublink={selectedSublink}
+                      currentRoute={location.pathname}
+                      scrollToTop={handleScrollToTop}
+                    />
+                  </div>
+                </Grid.Col>
+
+                <Grid.Col
+                  span="auto"
+                  // style={{ maxHeight: "75svh", overflowY: "auto" }}
+                >
+                  <Container>
+                    <Routes>
+                      <Route path="/" element={<Outlet />}>
+                        {/* <Route index element={<Academics />} /> */}
                         <Route
-                          path="college-of-architecture-and-urban-planning"
-                          element={<CAUP />}
+                          path="academic-overview"
+                          element={<Overview title={selectedLink} />}
                         />
-                        <Route path="plm-business-school" element={<PLMBS />} />
-                        <Route path="college-of-education" element={<CED />} />
+                        <Route path="colleges/*" element={<Outlet />}>
+                          <Route
+                            index
+                            element={<Colleges title={selectedLink} />}
+                          />
+                          <Route
+                            path="college-of-architecture-and-urban-planning"
+                            element={<CAUP />}
+                          />
+                          <Route
+                            path="plm-business-school"
+                            element={<PLMBS />}
+                          />
+                          <Route
+                            path="college-of-education"
+                            element={<CED />}
+                          />
+                          <Route
+                            path="college-of-engineering"
+                            element={<COE />}
+                          />
+                          <Route
+                            path="college-of-humanities-arts-and-social-sciences"
+                            element={<CHASS />}
+                          />
+                          <Route path="college-of-nursing" element={<CN />} />
+                          <Route
+                            path="college-of-physical-therapy"
+                            element={<CPT />}
+                          />
+                          <Route path="college-of-science" element={<CS />} />
+                          <Route path="college-of-law" element={<CL />} />
+                          <Route
+                            path="graduate-school-of-law"
+                            element={<GSL />}
+                          />
+                          <Route path="college-of-medicine" element={<CM />} />
+                          <Route path="school-of-government" element={<SG />} />
+                          <Route
+                            path="school-of-public-health"
+                            element={<SPH />}
+                          />
+                        </Route>
                         <Route
-                          path="college-of-engineering"
-                          element={<COE />}
+                          path="academic-calendar"
+                          element={<Calendar title={selectedLink} />}
                         />
                         <Route
-                          path="college-of-humanities-arts-and-social-sciences"
-                          element={<CHASS />}
-                        />
-                        <Route path="college-of-nursing" element={<CN />} />
-                        <Route
-                          path="college-of-physical-therapy"
-                          element={<CPT />}
-                        />
-                        <Route path="college-of-science" element={<CS />} />
-                        <Route path="college-of-law" element={<CL />} />
-                        <Route
-                          path="graduate-school-of-law"
-                          element={<GSL />}
-                        />
-                        <Route path="college-of-medicine" element={<CM />} />
-                        <Route path="school-of-government" element={<SG />} />
-                        <Route
-                          path="school-of-public-health"
-                          element={<SPH />}
+                          path="crs"
+                          element={<CRS title={selectedLink} />}
                         />
                       </Route>
-                      <Route path="academic-calendar" element={<Calendar />} />
-                      <Route path="crs" element={<CRS />} />
-                    </Route>
-                  </Routes>
-                </Container>
-              </div>
-            </div>
+                    </Routes>
+                    <Divider
+                      variant="dashed"
+                      label="Scroll to top"
+                      labelPosition="center"
+                      color="#6a0000"
+                      onClick={scrollToTop}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </Container>
+                </Grid.Col>
+              </Grid>
+            </ScrollArea>
           </div>
-          <QuickLinks />
         </div>
+        <QuickLinks />
       </div>
-      <Footer />
-    </div>
+      <div>
+        <Footer />
+      </div>
+    </>
   );
 }
 

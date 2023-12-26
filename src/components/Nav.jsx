@@ -2,7 +2,7 @@ import React from "react";
 import { Image } from "@mantine/core";
 import Menus from "./Menus";
 import SearchBar from "./SearchBar";
-import logo from "../assets/PLMLogotext.png";
+import logo from "../assets/logo/PLMLogotext.png";
 import { useNavigate } from "react-router-dom";
 
 function Nav({ color, style, sColor, onResetSublink }) {

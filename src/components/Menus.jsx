@@ -85,7 +85,7 @@ function Menus({ color, fsize }) {
               </Text>
             </Button>
           </Menu.Target>
-          <Menu.Dropdown>
+          <Menu.Dropdown p="xs">
             {menuItem.items &&
               menuItem.items.map((item, itemIndex) => (
                 <Menu.Item

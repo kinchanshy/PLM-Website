@@ -25,16 +25,44 @@ function Sidebar({
   //   window.scrollTo({ top: 0, behavior: "smooth" });
   // };
 
+  // useEffect(() => {
+  //   // Find the index of the current route in links
+  //   const currentIndex = links.findIndex((link) => link.link === currentRoute);
+
+  //   // If the current route is found, activate the corresponding link
+  //   if (currentIndex !== -1) {
+  //     setActive(currentIndex);
+  //     onLinkClick(links[currentIndex].label);
+  //   }
+  // }, [currentRoute, links, onLinkClick]);
   useEffect(() => {
     // Find the index of the current route in links
-    const currentIndex = links.findIndex((link) => link.link === currentRoute);
+    const mainLinkIndex = links.findIndex((link) => link.link === currentRoute);
 
-    // If the current route is found, activate the corresponding link
-    if (currentIndex !== -1) {
-      setActive(currentIndex);
-      onLinkClick(links[currentIndex].label);
+    // Check if the current route is a main link
+    if (mainLinkIndex !== -1) {
+      setActive(mainLinkIndex);
+      setActiveSublink(null);
+      onLinkClick(links[mainLinkIndex].label);
+    } else {
+      // If it's not a main link, check if it's a sublink
+      links.forEach((mainLink, mainLinkIndex) => {
+        // Check if subLinks is defined before trying to find the index
+        if (mainLink.subLinks && mainLink.subLinks.length > 0) {
+          const subLinkIndex = mainLink.subLinks.findIndex(
+            (subLink) => subLink.link === currentRoute
+          );
+
+          if (subLinkIndex !== -1) {
+            setActive(mainLinkIndex);
+            setActiveSublink(mainLink.subLinks[subLinkIndex].label);
+            onLinkClick(mainLink.label);
+            onSublinkClick(mainLink.subLinks[subLinkIndex].label);
+          }
+        }
+      });
     }
-  }, [currentRoute, links, onLinkClick]);
+  }, [currentRoute, links, onLinkClick, onSublinkClick]);
 
   const handleLinkClick = (index) => {
     setActive((prevActive) => (prevActive === index ? null : index));
@@ -76,7 +104,9 @@ function Sidebar({
           handleLinkClick(index);
         }}
         className={cx(classes.link, { [classes.linkActive]: active === index })}
-        style={{ paddingLeft: `calc(${item.order} * 2rem)` }}
+        style={{
+          paddingLeft: `calc(${item.order} * 2rem)`,
+        }}
       >
         {item.label}
       </Box>
@@ -120,7 +150,6 @@ function Sidebar({
     <div
       style={{
         display: "flex",
-        width: "20vw",
         marginLeft: "2rem",
       }}
     >

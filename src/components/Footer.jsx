@@ -14,7 +14,7 @@ import {
   IconMailFilled,
   IconBrandX,
 } from "@tabler/icons-react";
-import logo from "../assets/PLMLogoText1.png";
+import logo from "../assets/logo/PLMLogoText1.png";
 import { useWindowScroll } from "@mantine/hooks";
 import { useNavigate } from "react-router-dom";
 import { data, footerLinks } from "./links";

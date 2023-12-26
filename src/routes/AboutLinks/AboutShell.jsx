@@ -185,7 +185,6 @@ function AboutShell() {
           >
             <Divider size="sm" />
           </div>
-
           <div
             style={{
               display: "flex",

@@ -17,12 +17,7 @@ function CardHolder({ links }) {
         <Container key={index} size="25rem">
           <Card shadow="sm" padding="lg" radius="md" withBorder>
             <Card.Section component="a" p="sm">
-              <Image
-                src={data.imageUrl}
-                height={160}
-                alt="Norway"
-                radius="md"
-              />
+              <Image src={data.imageUrl} height={160} radius="md" />
             </Card.Section>
             <Container
               mt="md"
