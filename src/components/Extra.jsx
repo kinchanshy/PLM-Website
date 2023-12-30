@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion, Text } from "@mantine/core";
 
-function ExtraAccordion({ title, content, children }) {
+function Extra({ title, content, children }) {
   return (
     <Accordion variant="default" p="md">
       <Accordion.Item value={title}>
@@ -18,4 +18,4 @@ function ExtraAccordion({ title, content, children }) {
     </Accordion>
   );
 }
-export default ExtraAccordion;
+export default Extra;

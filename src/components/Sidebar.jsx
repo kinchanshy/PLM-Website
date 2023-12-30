@@ -1,7 +1,7 @@
 import cx from "clsx";
 import React, { useState, useEffect, useRef } from "react";
 // import { useWindowScroll } from "@mantine/hooks";
-import { Box, Text, Divider } from "@mantine/core";
+import { Box, Text, Divider, ScrollArea } from "@mantine/core";
 import { useNavigate, useLocation } from "react-router-dom";
 import classes from "../../src/App.module.css";
 

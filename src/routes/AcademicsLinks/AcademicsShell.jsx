@@ -213,11 +213,7 @@ function AcademicsShell() {
                     />
                   </div>
                 </Grid.Col>
-
-                <Grid.Col
-                  span="auto"
-                  // style={{ maxHeight: "75svh", overflowY: "auto" }}
-                >
+                <Grid.Col span="auto">
                   <Container>
                     <Routes>
                       <Route path="/" element={<Outlet />}>
@@ -233,40 +229,55 @@ function AcademicsShell() {
                           />
                           <Route
                             path="college-of-architecture-and-urban-planning"
-                            element={<CAUP />}
+                            element={<CAUP title={selectedSublink} />}
                           />
                           <Route
                             path="plm-business-school"
-                            element={<PLMBS />}
+                            element={<PLMBS title={selectedSublink} />}
                           />
                           <Route
                             path="college-of-education"
-                            element={<CED />}
+                            element={<CED title={selectedSublink} />}
                           />
                           <Route
                             path="college-of-engineering"
-                            element={<COE />}
+                            element={<COE title={selectedSublink} />}
                           />
                           <Route
                             path="college-of-humanities-arts-and-social-sciences"
-                            element={<CHASS />}
+                            element={<CHASS title={selectedSublink} />}
                           />
-                          <Route path="college-of-nursing" element={<CN />} />
+                          <Route
+                            path="college-of-nursing"
+                            element={<CN title={selectedSublink} />}
+                          />
                           <Route
                             path="college-of-physical-therapy"
-                            element={<CPT />}
+                            element={<CPT title={selectedSublink} />}
                           />
-                          <Route path="college-of-science" element={<CS />} />
-                          <Route path="college-of-law" element={<CL />} />
+                          <Route
+                            path="college-of-science"
+                            element={<CS title={selectedSublink} />}
+                          />
+                          <Route
+                            path="college-of-law"
+                            element={<CL title={selectedSublink} />}
+                          />
                           <Route
                             path="graduate-school-of-law"
-                            element={<GSL />}
+                            element={<GSL title={selectedSublink} />}
                           />
-                          <Route path="college-of-medicine" element={<CM />} />
-                          <Route path="school-of-government" element={<SG />} />
+                          <Route
+                            path="college-of-medicine"
+                            element={<CM title={selectedSublink} />}
+                          />
+                          <Route
+                            path="school-of-government"
+                            element={<SG title={selectedSublink} />}
+                          />
                           <Route
                             path="school-of-public-health"
-                            element={<SPH />}
+                            element={<SPH title={selectedSublink} />}
                           />
                         </Route>
                         <Route

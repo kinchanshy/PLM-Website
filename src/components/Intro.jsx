@@ -36,17 +36,17 @@ function Intro({ links }) {
               </div>
             </SimpleGrid>
           )}
-          {section.otherContent && (
+          {section.other && (
             <div>
-              {Array.isArray(section.otherContent) ? (
-                section.otherContent.map((paragraph, index) => (
+              {Array.isArray(section.other) ? (
+                section.other.map((paragraph, index) => (
                   <Text key={index} p="xs" ta="justify">
                     {paragraph}
                   </Text>
                 ))
               ) : (
                 <Text p="xs" ta="justify">
-                  {section.otherContent}
+                  {section.other}
                 </Text>
               )}
             </div>

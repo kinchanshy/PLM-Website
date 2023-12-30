@@ -1,17 +1,14 @@
 import React from "react";
-import { Space, Text, Box, Divider, List } from "@mantine/core";
-import Introduction from "../../../components/Intro";
-import CMSAccordion from "../../../components/Accordions";
+import { Text, Divider, Space, Container, List } from "@mantine/core";
+import Intro from "../../../components/Intro";
+import Accordions from "../../../components/Accordions";
 import BusinessCard from "../../../components/BusinessCard";
-import { CHASSAccordionItems, CHASSBusinessCardData } from "../links";
-import pic from "../Images/crs.png";
-import { useNavigate } from "react-router-dom";
+import { chassAccordion, chassBusinessCard, chassIntro } from "../links";
 
-function CHASS({ selectedSublink }) {
-  const navigate = useNavigate();
-  //const title = selectedSublink.toUpperCase();
+function CHASS({ title }) {
+  const more = title ? title.toUpperCase() : "";
   return (
-    <Box style={{ fontFamily: "Open Sans, sans serif" }}>
+    <Container>
       <div
         style={{
           display: "flex",
@@ -20,17 +17,13 @@ function CHASS({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          College of {selectedSublink}
+          College of {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
-      <Introduction
-        src={pic}
-        content="The College of Humanities, Arts, and Social Sciences (CHASS) emerged through the reorganization/merging of the College of Liberal Arts (CLA) and the College of Mass Communication (CMC), as recommended by the PLM University Council and approved by the Board of Regents on the latter's special meeting on June 4, 2015."
-        otherContent="By virtue of the reorganization, the Bachelor of Science in Social Work from the College of Human Development (CHD) and the Master of Arts in Communication Management from the Graduate School of Arts, Science, and Education (GSASE) also became part of CHASS. The merging was also based on the vertical articulation prescribed by the Commission on Higher Education’s Education Reform Agenda."
-      />
+      <Intro links={chassIntro} />
       <div style={{ padding: "1rem" }}>
-        <CMSAccordion items={CHASSAccordionItems} />
+        <Accordions items={chassAccordion} />
       </div>
       <Space h="lg" />
       <div
@@ -41,7 +34,7 @@ function CHASS({ selectedSublink }) {
         }}
       >
         <Text fz="lg" fw="bold" p="lg">
-          MORE ABOUT COLLEGE OF {title}
+          MORE ABOUT COLLEGE OF {more}
         </Text>
       </div>
       <div>
@@ -76,9 +69,9 @@ function CHASS({ selectedSublink }) {
         </Text>
       </div>
       <div>
-        <BusinessCard {...CHASSBusinessCardData} />
+        <BusinessCard {...chassBusinessCard} />
       </div>
-    </Box>
+    </Container>
   );
 }
 

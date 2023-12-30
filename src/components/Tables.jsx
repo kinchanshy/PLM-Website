@@ -14,7 +14,7 @@ function Tables({ columns, data }) {
     <tr key={rowData.id}>
       {columns.map((column) => (
         <td key={column.key}>
-          <Text p="md" ta={column.textAlign || "center"}>
+          <Text p="xl" ta={column.textAlign || "center"}>
             {column.useBullets && Array.isArray(rowData[column.key]) ? (
               <List>
                 {rowData[column.key].map((item, index) => (

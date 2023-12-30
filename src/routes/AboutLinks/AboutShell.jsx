@@ -14,6 +14,7 @@ import {
   Space,
   ScrollArea,
   Image,
+  GridCol,
 } from "@mantine/core";
 import quick from "../../assets/quick.png";
 import Profile from "./Profile";
@@ -55,14 +56,20 @@ function AboutShell() {
   const [selectedSublink, setSelectedSublink] = useState(null);
   const [isSolidBackground, setIsSolidBackground] = useState(false);
   const [activeSidebarIndex, setActiveSidebarIndex] = useState(null);
+  const viewport = useRef(null);
+
+  const scrollToTop = () =>
+    viewport.current.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
     setSelectedSublink(null); // Reset selected sublink when changing main links
+    scrollToTop();
   };
 
   const handleSublinkClick = (sublink) => {
     setSelectedSublink(sublink); // Handle sublink selection
+    scrollToTop();
   };
 
   const handleSidebarLinkActivate = (index) => {
@@ -103,9 +110,15 @@ function AboutShell() {
     };
   }, []);
 
+  const handleResetSublink = () => {
+    // Implement the logic to reset the active sublink in the Sidebar
+    // You might need to use a state variable to manage the active sublink in the Sidebar
+    setActiveSublink(null);
+  };
+
   return (
     <>
-      <div style={{ height: "150vh", overflow: "hidden" }}>
+      <div style={{ overflow: "hidden" }}>
         <Nav
           style={{
             backgroundColor: isSolidBackground ? "#fff" : "transparent",
@@ -137,7 +150,6 @@ function AboutShell() {
           ref={targetDivRef}
           style={{
             position: "sticky",
-            top: "0",
             backgroundColor: "#fff",
             width: "100%",
             zIndex: "1",
@@ -187,82 +199,106 @@ function AboutShell() {
           </div>
           <div
             style={{
-              display: "flex",
-              alignItems: "start",
-              gap: "2rem",
-              backgroundColor: "#fff",
-              zIndex: "1",
-              height: "100vh",
+              height: "80svh",
             }}
           >
-            <div style={{ minWidth: "30vw", position: "sticky", top: "0" }}>
-              <Sidebar
-                title={selectedLink}
-                links={links}
-                onLinkClick={handleLinkClick}
-                onSublinkClick={handleSublinkClick}
-                selectedSublink={selectedSublink}
-                currentRoute={location.pathname}
-                scrollToTop={handleScrollToTop}
-              />
-            </div>
-            <div>
-              <Container>
-                <Routes>
-                  <Route path="/" element={<Outlet />}>
-                    <Route path="university-profile/*" element={<Outlet />}>
-                      <Route index element={<Profile />} />
-                      <Route path="vision-and-mission" element={<VM />} />
-                      <Route path="seal-and-symbols" element={<Seal />} />
-                      <Route path="history" element={<History />} />
-                      <Route path="university-hymn" element={<Hymn />} />
-                      <Route path="university-charter" element={<Charter />} />
-                      <Route path="university-code" element={<Code />} />
-                      <Route path="university-map" element={<Map />} />
-                      <Route path="academic-thrusts" element={<Thrusts />} />
-                      <Route path="facilities" element={<Facilities />} />
-                    </Route>
-                    <Route path="outcome-based-education" element={<OBE />} />
-                    <Route path="administration/*" element={<Outlet />}>
-                      <Route index element={<Administration />} />
-                      <Route path="board-of-regents" element={<BOR />} />
-                      <Route path="the-president" element={<President />} />
-                      <Route
-                        path="vice-president-&-assistant-vice-presidents"
-                        element={<VP />}
-                      />
-                      <Route
-                        path="directors-and-chiefs"
-                        element={<Directors />}
-                      />
-                      <Route path="deans" element={<Deans />} />
-                      <Route
-                        path="organizational-chart"
-                        element={<OrgChart />}
-                      />
-                      <Route
-                        path="presidential-support-staff"
-                        element={<SupportStaff />}
-                      />
-                    </Route>
-                    <Route path="pride-hall" element={<Outlet />}>
-                      <Route index element={<PrideHall />} />
-                      <Route
-                        path="board-exam-passers"
-                        element={<BoardPassers />}
-                      />
-                      <Route path="awards" element={<Awards />} />
-                      <Route
-                        path="outstanding-alumni"
-                        element={<Outstanding />}
-                      />
-                      <Route path="model-employees" element={<Model />} />
-                    </Route>
-                    <Route path="contact" element={<Contact />} />
-                  </Route>
-                </Routes>
-              </Container>
-            </div>
+            <ScrollArea
+              h="75svh"
+              scrollbarSize={1}
+              offsetScrollbars
+              viewportRef={viewport}
+            >
+              <Grid columns={24}>
+                <Grid.Col span={6}>
+                  <Sidebar
+                    title={selectedLink}
+                    links={links}
+                    onLinkClick={handleLinkClick}
+                    onSublinkClick={handleSublinkClick}
+                    selectedSublink={selectedSublink}
+                    currentRoute={location.pathname}
+                    scrollToTop={handleScrollToTop}
+                  />
+                </Grid.Col>
+                <Grid.Col span="auto">
+                  <Container>
+                    <Routes>
+                      <Route path="/" element={<Outlet />}>
+                        <Route path="university-profile/*" element={<Outlet />}>
+                          <Route index element={<Profile />} />
+                          <Route
+                            path="vision-and-mission"
+                            element={<VM title={selectedSublink} />}
+                          />
+                          <Route path="seal-and-symbols" element={<Seal />} />
+                          <Route path="history" element={<History />} />
+                          <Route path="university-hymn" element={<Hymn />} />
+                          <Route
+                            path="university-charter"
+                            element={<Charter />}
+                          />
+                          <Route path="university-code" element={<Code />} />
+                          <Route path="university-map" element={<Map />} />
+                          <Route
+                            path="academic-thrusts"
+                            element={<Thrusts />}
+                          />
+                          <Route path="facilities" element={<Facilities />} />
+                        </Route>
+                        <Route
+                          path="outcome-based-education"
+                          element={<OBE />}
+                        />
+                        <Route path="administration/*" element={<Outlet />}>
+                          <Route index element={<Administration />} />
+                          <Route path="board-of-regents" element={<BOR />} />
+                          <Route path="the-president" element={<President />} />
+                          <Route
+                            path="vice-president-&-assistant-vice-presidents"
+                            element={<VP />}
+                          />
+                          <Route
+                            path="directors-and-chiefs"
+                            element={<Directors />}
+                          />
+                          <Route path="deans" element={<Deans />} />
+                          <Route
+                            path="organizational-chart"
+                            element={<OrgChart />}
+                          />
+                          <Route
+                            path="presidential-support-staff"
+                            element={<SupportStaff />}
+                          />
+                        </Route>
+                        <Route path="pride-hall" element={<Outlet />}>
+                          <Route index element={<PrideHall />} />
+                          <Route
+                            path="board-exam-passers"
+                            element={<BoardPassers />}
+                          />
+                          <Route path="awards" element={<Awards />} />
+                          <Route
+                            path="outstanding-alumni"
+                            element={<Outstanding />}
+                          />
+                          <Route path="model-employees" element={<Model />} />
+                        </Route>
+                        <Route path="contact" element={<Contact />} />
+                      </Route>
+                    </Routes>
+                    <Divider
+                      variant="dashed"
+                      label="Scroll to top"
+                      labelPosition="center"
+                      color="#6a0000"
+                      onClick={scrollToTop}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </Container>
+                </Grid.Col>
+              </Grid>
+            </ScrollArea>
           </div>
         </div>
         <QuickLinks />

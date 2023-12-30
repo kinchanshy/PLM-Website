@@ -4,6 +4,8 @@ import PDF from "../../components/PDF";
 import Download from "../../components/Download";
 import { useNavigate } from "react-router-dom";
 import { saveAs } from "file-saver";
+import Intro from "../../components/Intro";
+import { calendarIntro } from "./links";
 
 function Calendar({ title }) {
   const navigate = useNavigate();
@@ -33,9 +35,7 @@ function Calendar({ title }) {
       </div>
       <Divider c="#eeee" size="md" />
       <div>
-        <Text p="xs">
-          View or download our academic calendar for Academic Year 2023-2024.
-        </Text>
+        <Intro links={calendarIntro} />
       </div>
       <div>
         <PDF

@@ -1,16 +1,13 @@
 import React from "react";
-import { Image, Text, Box, Divider, Button } from "@mantine/core";
-import Introduction from "../../../components/Intro";
-import CMSAccordion from "../../../components/Accordions";
+import { Text, Divider, Container } from "@mantine/core";
+import Intro from "../../../components/Intro";
+import Accordions from "../../../components/Accordions";
 import BusinessCard from "../../../components/BusinessCard";
-import { SGAccordionItems, SGBusinessCardData } from "../links";
-import pic from "../Images/crs.png";
-import { useNavigate } from "react-router-dom";
+import { sgAccordion, sgBusinessCard, sgIntro } from "../links";
 
-function SG({ selectedSublink }) {
-  const navigate = useNavigate();
+function SG({ title }) {
   return (
-    <Box style={{ fontFamily: "Open Sans, sans serif" }}>
+    <Container>
       <div
         style={{
           display: "flex",
@@ -19,21 +16,18 @@ function SG({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
-      <Introduction
-        src={pic}
-        content="The School of Government offers undergraduate and post-graduate programs that aim to make students able professionals and managers in the public sector."
-      />
+      <Intro links={sgIntro} />
       <div style={{ padding: "1rem" }}>
-        <CMSAccordion items={SGAccordionItems} />
+        <Accordions items={sgAccordion} />
       </div>
       <div>
-        <BusinessCard {...SGBusinessCardData} />
+        <BusinessCard {...sgBusinessCard} />
       </div>
-    </Box>
+    </Container>
   );
 }
 

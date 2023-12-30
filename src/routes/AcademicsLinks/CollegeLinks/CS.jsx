@@ -1,24 +1,15 @@
 import React from "react";
-import { Space, Text, Box, Divider, Button } from "@mantine/core";
-import Introduction from "../../../components/Intro";
-import CMSAccordion from "../../../components/Accordions";
+import { Text, Divider, Container } from "@mantine/core";
+import Intro from "../../../components/Intro";
+import Accordions from "../../../components/Accordions";
 import BusinessCard from "../../../components/BusinessCard";
-import CustomTable from "../../../components/Tables";
-import ExtraAccordion from "../../../components/ExtraAccordion";
-import {
-  CSAccordionItems,
-  CSBusinessCardData,
-  CScolumns,
-  CSelements,
-} from "../links";
-import pic from "../Images/crs.png";
-import { useNavigate } from "react-router-dom";
+import Extra from "../../../components/Extra";
+import Tables from "../../../components/Tables";
+import { csAccordion, csBusinessCard, csCols, csData, csIntro } from "../links";
 
-function CS({ selectedSublink }) {
-  const navigate = useNavigate();
-
+function CS({ title }) {
   return (
-    <Box style={{ fontFamily: "Open Sans, sans serif" }}>
+    <Container>
       <div
         style={{
           display: "flex",
@@ -27,35 +18,26 @@ function CS({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
-      <Introduction
-        src={pic}
-        content="The College of Science is one of the esteemed colleges of the university which has produced board topnotchers, leaders in the national and international levels. It used to be part of the College of Arts and Science, until the Board of Regents approved its 
-proposed separation in 2002. By 2015, it offered the programs BS Psychology, MA Psychology, 
-and MS in Mathematics Education."
-        otherContent="It used to be part of the College of Arts and Science, until the Board of Regents approved its 
-proposed separation in 2002. By 2015, it offered the programs BS Psychology, MA Psychology, 
-and MS in Mathematics Education."
-      />
+      <Intro links={csIntro} />
       <div style={{ padding: "1rem", marginBottom: "-2rem" }}>
-        <CMSAccordion items={CSAccordionItems} />
+        <Accordions items={csAccordion} />
       </div>
       <div>
-        <ExtraAccordion
+        <Extra
           title="Outstanding Alumni"
-          content="Graduates from the College of Science have made a name for themselves in their respective fields.
-          Here are some of them:"
+          content="Graduates from the College of Science have made a name for themselves in their respective fields. Here are some of them:"
         >
-          <CustomTable columns={CScolumns} data={CSelements} />
-        </ExtraAccordion>
+          <Tables columns={csCols} data={csData} />
+        </Extra>
       </div>
       <div>
-        <BusinessCard {...CSBusinessCardData} />
+        <BusinessCard {...csBusinessCard} />
       </div>
-    </Box>
+    </Container>
   );
 }
 

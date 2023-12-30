@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { Text, Box, Divider, Button } from "@mantine/core";
-import PDF from "../../../Components/PDF";
-
+import PDF from "../../../components/PDF";
 
 function Charter({ selectedSublink }) {
   //const title = selectedSublink.toUpperCase();
@@ -34,14 +33,19 @@ function Charter({ selectedSublink }) {
 
       <div style={{ padding: ".5rem" }}>
         <Text p="xs">
-        Republic Act No. 4196 or “An Act Authorizing the City of Manila to Establish and Operate the University of City of Manila”, 
-which created the PLM, is the University Charter. It was signed into law on June 19, 1965.
+          Republic Act No. 4196 or “An Act Authorizing the City of Manila to
+          Establish and Operate the University of City of Manila”, which created
+          the PLM, is the University Charter. It was signed into law on June 19,
+          1965.
         </Text>
       </div>
-      
+
       <div style={{ padding: "1rem" }}>
-          <Text>According to the charter, the Congress of the Philippines conferred upon the Board of Regents the exclusive power to govern 
-the university.</Text>
+        <Text>
+          According to the charter, the Congress of the Philippines conferred
+          upon the Board of Regents the exclusive power to govern the
+          university.
+        </Text>
       </div>
 
       <div>
@@ -67,4 +71,3 @@ the university.</Text>
 }
 
 export default Charter;
-

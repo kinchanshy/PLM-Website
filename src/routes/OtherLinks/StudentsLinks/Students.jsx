@@ -150,10 +150,10 @@ function Students() {
                   links={links}
                   onLinkClick={handleLinkClick}
                   onSublinkClick={handleSublinkClick}
-                  selectedSublink={selectedSublink}      
+                  selectedSublink={selectedSublink}
                 />
               </Container>
-              <Container style={{marginTop: -500}}>
+              <Container style={{ marginTop: -500 }}>
                 <Image maw={350} src={pic} p="md" />
               </Container>
               {/* Place Navigation component in the first column */}

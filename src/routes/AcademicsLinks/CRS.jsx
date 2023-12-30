@@ -90,7 +90,7 @@ function CRS({ title }) {
                 Problems on CRS or graduate student registration access:
               </Text>
               <Space w="xs" />
-              <Tooltip label="Send Email">
+              <Tooltip label="Send Email" withArrow>
                 <Text
                   className="email"
                   style={{ cursor: "pointer" }}

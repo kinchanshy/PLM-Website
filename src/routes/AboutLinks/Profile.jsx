@@ -1,11 +1,9 @@
 import React from "react";
 import { Image, Text, Box, Divider } from "@mantine/core";
-import { useNavigate } from "react-router-dom";
 import { texts } from "./links";
 import pic from "./Images/UnivProfile.png";
 
-function Profile({ selectedLink }) {
-  const navigate = useNavigate();
+function Profile() {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -16,7 +14,7 @@ function Profile({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          PAMANTASAN NG LUNGSOD NG MAYNILA
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

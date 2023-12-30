@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, Box, Divider } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-import ExtraAccordion from "../../components/ExtraAccordion";
+import ExtraAccordion from "../../components/Extra";
 import CustomTable from "../../components/Tables";
 import {
   administrativeTable,

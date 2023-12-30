@@ -14,8 +14,8 @@ function BusinessCard({
   contactInfo: { text, location, email, phone },
 }) {
   return (
-    <div style={{ padding: "2rem" }}>
-      <Paper radius="md" shadow="md" p="lg" bg="color.2">
+    <div style={{ padding: "1rem" }}>
+      <Paper radius="md" shadow="md" p="lg" bg="#f7f7f7">
         <SimpleGrid cols={2}>
           <div>
             <Text fz="xl" fw="bold">
@@ -28,7 +28,7 @@ function BusinessCard({
           </div>
           <div>
             <div style={{ display: "flex" }}>
-              <ActionIcon c="color.4">
+              <ActionIcon c="#A31920" variant="subtle">
                 <IconMinus size="1.125rem" />
               </ActionIcon>
               <Space w="xs" />
@@ -43,7 +43,7 @@ function BusinessCard({
             </div>
             <div style={{ display: "flex" }}>
               <div>
-                <ActionIcon c="color.4">
+                <ActionIcon c="#A31920" variant="subtle">
                   <IconMapPin size="1.125rem" />
                 </ActionIcon>
               </div>
@@ -56,7 +56,7 @@ function BusinessCard({
             <Space h="xs" />
             <div style={{ display: "flex" }}>
               <div>
-                <ActionIcon c="color.4">
+                <ActionIcon c="#A31920" variant="subtle">
                   <IconMail size="1.125rem" />
                 </ActionIcon>
               </div>
@@ -69,7 +69,7 @@ function BusinessCard({
             <Space h="xs" />
             <div style={{ display: "flex" }}>
               <div>
-                <ActionIcon c="color.4">
+                <ActionIcon c="#A31920" variant="subtle">
                   <IconPhone size="1.125rem" />
                 </ActionIcon>
               </div>

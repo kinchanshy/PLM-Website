@@ -1,20 +1,22 @@
-import React, { useEffect } from "react";
-import { Text, Box, Divider, Space, List, Grid } from "@mantine/core";
-import CMSAccordion from "../../../components/Accordions";
-import CMSTimeline from "../../../components/Timelines";
-import CMSCard from "../../../components/Card";
+import React from "react";
+import { Text, Divider, Space, Container } from "@mantine/core";
+import Intro from "../../../components/Intro";
+import Accordions from "../../../components/Accordions";
+import Quotes from "../../../components/Quotes";
+import Timelines from "../../../components/Timelines";
 import BusinessCard from "../../../components/BusinessCard";
-import Introduction from "../../../components/Intro";
-import pic from "../Images/crs.png";
-import { timelineItems, accordionItems, CaupBusinessCardData } from "../links";
-import { useNavigate } from "react-router-dom";
+import {
+  caupIntro,
+  caupAccordion,
+  caupTimeline,
+  caupVM,
+  caupBusinessCard,
+} from "../links";
 
-function CAUP({ selectedSublink }) {
-  const navigate = useNavigate();
-  const title = selectedSublink.toUpperCase();
-
+function CAUP({ title }) {
+  const more = title ? title.toUpperCase() : "";
   return (
-    <Box style={{ fontFamily: "Open Sans, sans serif" }}>
+    <Container>
       <div
         style={{
           display: "flex",
@@ -23,24 +25,18 @@ function CAUP({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          College of {selectedSublink}
+          College of {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
       <div style={{ display: "flex" }}>
-        <Introduction
-          src={pic}
-          content=" The College of Architecture and Urban Planning at PLM offers various
-          degree programs, emphasizing design, theory, and practical skills to
-          prepare students for careers in these fields. The college prioritizes
-          creativity, sustainability, and innovative urban development."
-        />
+        <Intro links={caupIntro} />
       </div>
       <div style={{ padding: "1rem" }}>
-        <CMSAccordion items={accordionItems} />
+        <Accordions items={caupAccordion} />
       </div>
       <Space h="lg" />
-      <div>
+      <>
         <div
           style={{
             display: "flex",
@@ -49,61 +45,18 @@ function CAUP({ selectedSublink }) {
           }}
         >
           <Text fz="lg" fw="bold" p="lg">
-            MORE ABOUT COLLEGE OF {title}
+            MORE ABOUT COLLEGE OF {more}
           </Text>
         </div>
-        <Grid
-          columns={24}
+        <div
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <Grid.Col span={11}>
-            <CMSCard
-              title="VISION"
-              bgColor="color.2"
-              height="60vh"
-              content={
-                <Text>
-                  It will become a partner of choice as an active provider of
-                  competent industry players in today's built-environment
-                  market.
-                </Text>
-              }
-            />
-          </Grid.Col>
-          <Grid.Col span={11}>
-            <CMSCard
-              title="MISSION"
-              bgColor="color.2"
-              height="60vh"
-              content={
-                <List type="ordered">
-                  <List.Item>
-                    <Text>
-                      Transforming mindsets to highly competitive outlooks.
-                    </Text>
-                  </List.Item>
-                  <List.Item>
-                    <Text>
-                      Create values mutually beneficial to students and the
-                      institution by providing opportunities of borderless
-                      cooperation.
-                    </Text>
-                  </List.Item>
-                  <List.Item>
-                    <Text>
-                      Constant adherence to excellence in professionalism,
-                      creativity, teamwork and leadership.
-                    </Text>
-                  </List.Item>
-                </List>
-              }
-            />
-          </Grid.Col>
-        </Grid>
+          <Quotes links={caupVM} height="70vh" bg="#F7F7F7" />
+        </div>
         <Space w="xl" />
         <div
           style={{
@@ -113,13 +66,13 @@ function CAUP({ selectedSublink }) {
             padding: "2rem",
           }}
         >
-          <CMSTimeline title="HISTORY" items={timelineItems} />
+          <Timelines items={caupTimeline} />
         </div>
         <div>
-          <BusinessCard {...CaupBusinessCardData} />
+          <BusinessCard {...caupBusinessCard} />
         </div>
-      </div>
-    </Box>
+      </>
+    </Container>
   );
 }
 
