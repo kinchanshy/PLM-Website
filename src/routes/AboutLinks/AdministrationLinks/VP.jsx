@@ -13,7 +13,7 @@ import N_Gocuyo from "../Images/N_Gocuyo.jpg";
 import DUMMY from "../Images/DUMMY.png";
 
 
-function VP({ selectedSublink }) {
+function VP({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -25,7 +25,7 @@ function VP({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -39,6 +39,8 @@ function VP({ selectedSublink }) {
           
         }}
       >
+      
+      <Grid.Col span={10} />
       <Grid.Col span={10}>
         <Card
         shadow="sm"
@@ -418,6 +420,7 @@ function VP({ selectedSublink }) {
           
         }}
       >
+      <Grid.Col span={10} />
       <Grid.Col span={10}>
         <Card
         shadow="sm"

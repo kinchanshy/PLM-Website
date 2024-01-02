@@ -17,7 +17,7 @@ import K_Mata from "../Images/K_Mata.jpg";
 import DUMMY from "../Images/DUMMY.png";
 import H_Nunez from "../Images/H_Nunez.jpg";
 
-function Directors({ selectedSublink }) {
+function Directors({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -29,7 +29,7 @@ function Directors({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -159,6 +159,8 @@ function Directors({ selectedSublink }) {
               
             }}
           >
+
+          <Grid.Col span={10} />
           <Grid.Col span={10}>
             <Card
             shadow="sm"
@@ -435,6 +437,7 @@ function Directors({ selectedSublink }) {
               
             }}
           >
+          <Grid.Col span={10} />
           <Grid.Col span={10}>
             <Card
             shadow="sm"
@@ -492,6 +495,7 @@ function Directors({ selectedSublink }) {
           
         }}
       >
+          <Grid.Col span={5} />
 
           <Grid.Col span={10}>
             <Card
@@ -807,6 +811,7 @@ function Directors({ selectedSublink }) {
               
             }}
           >
+          <Grid.Col span={10} />
           <Grid.Col span={10}>
             <Card
             shadow="sm"

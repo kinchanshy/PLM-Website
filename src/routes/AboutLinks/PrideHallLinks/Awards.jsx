@@ -14,7 +14,7 @@ import awardnews1 from "../Images/awardsnews1.png";
 import News from "../../../components/News";
 import { newsLinks } from "../links";
 
-function Awards({ selectedSublink }) {
+function Awards({ title }) {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -25,7 +25,7 @@ function Awards({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

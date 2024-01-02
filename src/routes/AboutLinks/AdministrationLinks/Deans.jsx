@@ -13,7 +13,7 @@ import A_Atienza from "../Images/A_Atienza.jpg";
 import N_Gocuyo from "../Images/N_Gocuyo.jpg";
 import P_Rio from "../Images/P_Rio.jpg";
 
-function Deans({ selectedSublink }) {
+function Deans({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -25,7 +25,7 @@ function Deans({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

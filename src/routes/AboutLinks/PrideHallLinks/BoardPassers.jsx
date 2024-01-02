@@ -6,7 +6,7 @@ import news1 from "../Images/news1.png";
 import News from "../../../components/News";
 import { bopNewsLinks } from "../links";
 
-function BoardPassers({ selectedSublink }) {
+function BoardPassers({ title }) {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -17,7 +17,7 @@ function BoardPassers({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

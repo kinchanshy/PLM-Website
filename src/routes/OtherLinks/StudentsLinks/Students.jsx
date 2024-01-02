@@ -9,7 +9,7 @@ import {
   Image,
 } from "@mantine/core";
 import Footer from "../../../components/Footer";
-import Navigation from "../../../components/Navigation";
+import Navigation from "../../../components/Sidebar";
 import Nav from "../../../components/Nav";
 import { links } from "./links";
 import pic from "./Images/student_manual.jpg";

@@ -8,7 +8,7 @@ import TBayan from "../Images/tbayan.jpg";
 import JAA from "../Images/jaa.jpg";
 
 
-function Facilities({ selectedSublink }) {
+function Facilities({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -20,7 +20,7 @@ function Facilities({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

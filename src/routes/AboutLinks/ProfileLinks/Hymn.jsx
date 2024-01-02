@@ -2,7 +2,7 @@ import React from "react";
 import { Text, Box, Divider, List } from "@mantine/core";
 
 
-function Hymn({ selectedSublink }) {
+function Hymn({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -14,7 +14,7 @@ function Hymn({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

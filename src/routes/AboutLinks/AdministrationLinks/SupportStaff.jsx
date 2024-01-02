@@ -3,7 +3,7 @@ import { Space, Text, Box, Divider, Grid, Image, Card } from "@mantine/core";
 import R_J_S_C from "../Images/R_J_S_C.jpg";
 import DUMMY from "../Images/DUMMY.png";
 
-function SupportStaff({ selectedSublink }) {
+function SupportStaff({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -15,7 +15,7 @@ function SupportStaff({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

@@ -3,7 +3,7 @@ import { Image, Text, Box, Divider } from "@mantine/core";
 import plmhistory from "../Images/plm_history.png";
 
 
-function History({ selectedSublink }) {
+function History({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -15,7 +15,7 @@ function History({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

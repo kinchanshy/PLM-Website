@@ -5,7 +5,7 @@ import DownloadButton from "../../components/DownloadButton";
 import { texts } from "./links";
 import pic from "./Images/UnivProfile.png";
 
-function OBE({ selectedLink }) {
+function OBE({ title }) {
   const navigate = useNavigate();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -17,7 +17,7 @@ function OBE({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

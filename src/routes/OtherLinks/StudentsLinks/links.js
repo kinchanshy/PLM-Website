@@ -1,3 +1,13 @@
+import cradle from "../StudentsLinks/Images/cradle.jpg";
+import css from "../StudentsLinks/Images/css.jpg";
+import ecess from "../StudentsLinks/Images/ecess.jpg";
+import gdsc from "../StudentsLinks/Images/gdsc.jpg";
+import it from "../StudentsLinks/Images/it.jpg";
+import magwayen from "../StudentsLinks/Images/magwayen.jpg";
+import prelaw from "../StudentsLinks/Images/prelaw.jpg";
+import santelmo from "../StudentsLinks/Images/santelmo.jpg";
+import tugon from "../StudentsLinks/Images/tugon.jpg";
+
 export const links = [
   {
     label: "Students Overview",
