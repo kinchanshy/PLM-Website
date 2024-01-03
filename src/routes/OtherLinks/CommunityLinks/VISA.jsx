@@ -3,8 +3,7 @@ import { Text, Box, Divider, List, } from "@mantine/core";
 import { accordionItems } from "./links";
 import Accordion from "../../../components/Accordions";
 
-function VISA({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+function VISA() {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -15,7 +14,7 @@ function VISA({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          IMMIGRATION AND VISA
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

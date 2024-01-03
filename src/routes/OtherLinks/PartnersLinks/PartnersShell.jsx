@@ -122,9 +122,7 @@ function PartnersShell() {
             <Divider size="sm" />
           </div>
           <div style={{ height: "100vh", backgroundColor: "#fff" }}>
-            <Container>
               <Partners />
-            </Container>
           </div>
           <QuickLinks />
         </div>

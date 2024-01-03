@@ -14,14 +14,13 @@ const elements = [
     },
 ];
 
-function Events({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+function Events() {
 
   const rows = elements.map((element) => (
-    <tr key={element.cos}>
-      <td style={{textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>{element.date}</td>
-      <td>{element.cos}</td>
-    </tr>
+    <Table.Tr key={element.cos}>
+      <Table.Td style={{textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>{element.date}</Table.Td>
+      <Table.Td>{element.cos}</Table.Td>
+    </Table.Tr>
   ));
 
   return (
@@ -34,7 +33,7 @@ function Events({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          EVENTS
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -65,16 +64,16 @@ function Events({ selectedLink }) {
         p="md"
         fontSize="lg"
         highlightOnHover
-        withBorder
+        withTableBorder
         withColumnBorders
       >
-        <thead style={{backgroundColor:'#006699'}}>
-        <tr>
-          <th style={{color:'#FFFFFF', textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>DATE</th>
-          <th style={{color:'#FFFFFF', textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>EVENT</th>
-        </tr>
-      </thead>
-      <tbody>{rows}</tbody>
+        <Table.Thead style={{backgroundColor:'#006699'}}>
+        <Table.Tr>
+          <Table.Th style={{color:'#FFFFFF', textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>DATE</Table.Th>
+          <Table.Th style={{color:'#FFFFFF', textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>EVENT</Table.Th>
+        </Table.Tr>
+      </Table.Thead>
+      <Table.Tbody>{rows}</Table.Tbody>
 
       </Table>
     </div>

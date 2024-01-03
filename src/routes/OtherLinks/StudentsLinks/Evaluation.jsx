@@ -3,8 +3,9 @@ import { Table, Text, List, Box, Divider } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 
 const elements = [
-  { date: "January 3-4, 2022",  cos: 
-    <List >
+  { date: "January 3-4, 2022",  
+    cos: 
+    <List style={{padding: "2rem"}}>
       <List.Item>
         <Text>College of Architecture and Urban Planning (CAUP)</Text>
       </List.Item>
@@ -33,7 +34,9 @@ const elements = [
         <Text>(Undergraduate, graduate, postgraduate, and professional programs)</Text>
       
     </List>},
-  { date: "January 15-23, 2022",  cos: <List >
+  { date: "January 15-23, 2022",  
+    cos: 
+    <List style={{padding: "2rem"}}>
     <List.Item>
       <Text>College of Engineering and Technology (CET)</Text>
     </List.Item>
@@ -46,14 +49,13 @@ const elements = [
   </List> },
 ];
 
-function Evaluation({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+function Evaluation() {
 
   const rows = elements.map((element) => (
-    <tr key={element.cos}>
-      <td style={{textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>{element.date}</td>
-      <td>{element.cos}</td>
-    </tr>
+    <Table.Tr key={element.cos}>
+      <Table.Td style={{textAlign:'center'}}>{element.date}</Table.Td>
+      <Table.Td>{element.cos}</Table.Td>
+    </Table.Tr>
   ));
 
   return (
@@ -66,7 +68,7 @@ function Evaluation({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          STUDENT’S FACULTY EVALUATION SYSTEM
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -91,16 +93,16 @@ function Evaluation({ selectedLink }) {
         p="md"
         fontSize="lg"
         highlightOnHover
-        withBorder
+        withTableBorder
         withColumnBorders
       >
         <thead style={{backgroundColor:'#006699'}}>
-        <tr>
-          <th style={{color:'#FFFFFF', textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>DATE</th>
-          <th style={{color:'#FFFFFF', textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>COLLEGE/SCHOOL</th>
-        </tr>
+        <Table.Tr>
+          <Table.Th style={{color:'#FFFFFF', textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>DATE</Table.Th>
+          <Table.Th style={{color:'#FFFFFF', textAlign:'center',  fontFamily: "Open Sans, sans-serif"}}>COLLEGE/SCHOOL</Table.Th>
+        </Table.Tr>
       </thead>
-      <tbody>{rows}</tbody>
+      <Table.Tbody>{rows}</Table.Tbody>
 
       </Table>
     </div>

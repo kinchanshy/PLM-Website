@@ -2,8 +2,7 @@ import React from "react";
 import { Image, Text, Box, Divider, Grid } from "@mantine/core";
 import pic from "./Images/CRS.png";
 
-function Campus({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+function Campus() {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -14,7 +13,7 @@ function Campus({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          CAMPUS
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

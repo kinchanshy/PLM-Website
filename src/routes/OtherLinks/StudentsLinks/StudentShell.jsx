@@ -7,10 +7,10 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-import { Grid, Text, Space, Divider, Container } from "@mantine/core";
+import { Grid, Text, Space, Divider, Container, ScrollArea, Image } from "@mantine/core";
 import { links } from "./links";
 import Footer from "../../../components/Footer";
-import Sidebar from "../../../components/Sidebar";
+import Sidebar from "../../../components/SidabarStudents";
 import Students from "./Students";
 import StudentManual from "./StudentManual";
 import Tuition from "./Tuition";
@@ -32,6 +32,10 @@ function StudentShell() {
   const [selectedLink, setSelectedLink] = useState(null);
   const [selectedSublink, setSelectedSublink] = useState(null);
   const [activeSidebarIndex, setActiveSidebarIndex] = useState(null);
+  const viewport = useRef(null);
+
+  const scrollToTop = () =>
+    viewport.current.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
@@ -153,49 +157,64 @@ function StudentShell() {
           >
             <Divider size="sm" />
           </div>
-          <Grid columns={24}>
-            <Grid.Col span={6}>
-              <Container>
-                <Sidebar
-                  title={selectedLink}
-                  links={links}
-                  onLinkClick={handleLinkClick}
-                  currentRoute={location.pathname}
-                />
-              </Container>
-            </Grid.Col>
-            <Grid.Col span="auto">
-              <div style={{ height: "100vh", width: "100%" }}>
+
+          <ScrollArea
+              h="75svh"
+              scrollbarSize={1}
+              offsetScrollbars
+              viewportRef={viewport}
+            >
+            <Grid columns={24}>
+              <Grid.Col span={6}>
                 <Container>
-                  <Routes>
-                    <Route path="/" element={<Outlet />}>
-                      <Route path="students-overview" element={<Students />} />
-                      <Route
-                        path="student-manual"
-                        element={<StudentManual />}
-                      />
-                      <Route
-                        path="tuition-and-other-fees"
-                        element={<Tuition />}
-                      />
-                      <Route path="student-services" element={<Services />} />
-                      <Route
-                        path="national-service-training-program"
-                        element={<NSTP />}
-                      />
-                      <Route path="student-council" element={<SSC />} />
-                      <Route path="student-organization" element={<Org />} />
-                      <Route
-                        path="students-faculity-evaluation-system"
-                        element={<Evaluation />}
-                      />
-                      <Route path="crs" element={<StudentCRS />} />
-                    </Route>
-                  </Routes>
+                  <Sidebar
+                    title={selectedLink}
+                    links={links}
+                    onLinkClick={handleLinkClick}
+                    currentRoute={location.pathname}
+                    scrollToTop={handleScrollToTop}
+                  />
                 </Container>
-              </div>
-            </Grid.Col>
-          </Grid>
+              </Grid.Col>
+              <Grid.Col span="auto">
+                  <Container>
+                    <Routes>
+                      <Route path="/" element={<Outlet />}>
+                        <Route path="students-overview" element={<Students />} />
+                        <Route
+                          path="student-manual"
+                          element={<StudentManual />}
+                        />
+                        <Route
+                          path="tuition-and-other-fees"
+                          element={<Tuition />}
+                        />
+                        <Route path="student-services" element={<Services />} />
+                        <Route
+                          path="national-service-training-program"
+                          element={<NSTP />}
+                        />
+                        <Route path="student-council" element={<SSC />} />
+                        <Route path="student-organization" element={<Org />} />
+                        <Route
+                          path="students-faculity-evaluation-system"
+                          element={<Evaluation />}
+                        />
+                        <Route path="crs" element={<StudentCRS />} />
+                      </Route>
+                    </Routes>
+                    <Divider
+                      variant="dashed"
+                      label="Scroll to top"
+                      labelPosition="center"
+                      color="#6a0000"
+                      onClick={scrollToTop}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </Container>
+              </Grid.Col>
+            </Grid>
+          </ScrollArea>
           <QuickLinks />
         </div>
       </div>

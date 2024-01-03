@@ -14,7 +14,7 @@ import {
   IconPhone,
 } from "@tabler/icons-react";
 import Footer from "../../../components/Footer";
-import Navigation from "../../../components/Navigation";
+import Navigation from "../../../components/Sidebar";
 import Nav from "../../../components/Nav";
 
 
@@ -48,69 +48,6 @@ function Partners() {
   // };
 
   return (
-    <div style={{ overflow: "hidden" }}>
-      <Nav
-        style={{
-          backgroundColor: isSolidBackground ? "transparent" : "#fff",
-          boxShadow: isSolidBackground
-            ? "none"
-            : "0 4px 4px rgba(0, 0, 0, 0.2)",
-        }}
-        backgroundColor
-        color={isSolidBackground ? "color.0" : "color.9"}
-        sColor={isSolidBackground ? "color.0" : "color.9"}
-      />
-      <div className="Header">
-        <div
-          style={{
-            display: "flex",
-            marginLeft: "3rem",
-            marginTop: "10rem",
-            position: "fixed",
-            zIndex: 0,
-          }}
-        >
-          <Divider size="md" color="#FFC60B" orientation="vertical" />
-          <Space w="sm" />
-          <Text c="#fff" fw="bold" fz="3rem">
-            PARTNERS
-          </Text>
-        </div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          position: "absolute",
-          flexDirection: "column",
-          backgroundColor: "#fff",
-          width: "100%",
-          zIndex: "1",
-        }}
-      >
-        <div
-          ref={aboutTextRef}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center ",
-            padding: "1rem",
-          }}
-        >
-          <div style={{ display: "flex", padding: "1rem" }}>
-            <Text fz="lg" ff="Open Sans">
-              Home
-            </Text>
-            <Space w="sm" />
-            <Text c="gray">⚬</Text>
-            <Space w="sm" />
-            <Text fz="lg" ff="Open Sans">
-              Partners
-            </Text>
-            <Space w="sm" />
-          </div>
-
-          <Divider />
-        </div>
 
         <div
           style={{
@@ -121,7 +58,7 @@ function Partners() {
         
           }}
         >
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
+          <div>
             <Text p="xs" fw={'bold'} fz={'1.5rem'}>
             PARTNERS
             </Text>
@@ -129,7 +66,7 @@ function Partners() {
           
           <Divider />
 
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
+          <div>
             <Text p="xs">
             PLM works with partners that share our vision of making service-oriented, quality education a standard in learning.
             </Text>
@@ -141,19 +78,19 @@ function Partners() {
             </Text>
           </div>
           
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
+          <div>
             <Text p="xs">
             PLM partners with foundations and generous individuals to provide poor but deserving students the fighting chance that they deserve. Depending on the partners, scholars receive monthly stipends, book allowance, and even a year-end bonus.
             </Text>
           </div>
 
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
+          <div>
             <Text p="xs">
             Read more about our scholarship providers here. (Nakalink ito under admissions)
             </Text>
           </div>
 
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
+          <div>
             <Text p="xs">
             Organizations or individuals interested to provide scholarship to PLM students may contact the Office of Public Affairs (OPA). Inquiries and letters of intent may be addressed to:
             </Text>
@@ -230,12 +167,7 @@ function Partners() {
               </SimpleGrid>
             </Paper>
           </div>
-
-          </div>
-
-        <Footer />
-      </div>
-    </div>
+        </div>
   );
 }
 

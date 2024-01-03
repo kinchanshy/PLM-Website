@@ -2,8 +2,7 @@ import React from "react";
 import { Text, Box, Divider, List } from "@mantine/core";
 
 
-function NSTP({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+function NSTP() {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -14,7 +13,7 @@ function NSTP({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          NATIONAL SERVICE TRAINING PROGRAM
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

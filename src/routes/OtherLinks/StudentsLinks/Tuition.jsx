@@ -1,8 +1,7 @@
 import React from "react";
 import { Text, Box, Divider } from "@mantine/core";
 
-function Tuition({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+function Tuition() {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -13,7 +12,7 @@ function Tuition({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          TUITION AND OTHER FEES
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
