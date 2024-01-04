@@ -155,7 +155,7 @@ export const data = [
         },
       },
       { label: "Careers", link: "/careers/careers-in-plm" },
-      { label: "Procurement", link: "/procurement/annual-procurement-plan" },
+      { label: "Procurement", link: "/procurement/procurement-overview" },
     ],
   },
   {

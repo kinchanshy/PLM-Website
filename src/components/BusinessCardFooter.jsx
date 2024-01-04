@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, ActionIcon, Paper, SimpleGrid, Space } from "@mantine/core";
+import { Text, ActionIcon, Paper, SimpleGrid, Space, Button } from "@mantine/core";
 import {
   IconMinus,
   IconMapPin,
@@ -7,11 +7,9 @@ import {
   IconPhone,
 } from "@tabler/icons-react";
 
-function BusinessCard({
-  contactInfo: { text, location, email, phone },
-}) {
+function BusinessCard() {
   return (
-    <div style={{ padding: "1rem" }}>
+    <div style={{ padding: "1rem 20rem 1rem 20rem" }}>
       <Paper radius="md" shadow="md" p="lg" bg="#f7f7f7">
         <SimpleGrid cols={2}>
           <div>
@@ -26,9 +24,23 @@ function BusinessCard({
             </div>
             <div>
               <Text fz="lg" fw="bold" p="sm">
-                {text}
+                We value your feedback. Please do not hesitate to get in touch with us for suggestions, concerns, and/or complaints.
               </Text>
             </div>
+            <div style={{ padding: "1rem" }}>
+          <Button
+            radius="md"
+            className="buttons"
+            c="white"
+            uppercase
+            onClick={() => { window.location.href = "/contact-us"; } }
+          >
+            <Text>CLICK HERE TO SUBMIT FEEDBACK</Text>
+          </Button>
+        </div>
+          </div>
+
+          <div>
             <div style={{ display: "flex" }}>
               <div>
                 <ActionIcon c="#A31920" variant="subtle">
@@ -37,8 +49,8 @@ function BusinessCard({
               </div>
               <Space w="xs" />
               <div>
-                <Text>{location.title}</Text>
-                <Text c="dimmed">{location.text}</Text>
+                <Text>Location</Text>
+                <Text c="dimmed">Gen. Luna corner Muralla Streets, Intramuros Manila, Philippine 1002</Text>
               </div>
             </div>
             <Space h="xs" />
@@ -50,8 +62,8 @@ function BusinessCard({
               </div>
               <Space w="xs" />
               <div>
-                <Text>{email.title}</Text>
-                <Text c="dimmed">{email.text}</Text>
+                <Text>Email</Text>
+                <Text c="dimmed">email@plm.edu.ph</Text>
               </div>
             </div>
             <Space h="xs" />
@@ -63,14 +75,10 @@ function BusinessCard({
               </div>
               <Space w="xs" />
               <div>
-                <Text>{phone.title}</Text>
-                <Text c="dimmed">{phone.text}</Text>
+                <Text>Contact Numbers</Text>
+                <Text c="dimmed">00000</Text>
               </div>
             </div>
-          </div>
-
-          <div>
-            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" style={{borderRadius:"1rem"}} src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Pamantasan%20ng%20Lungsod%20ng%20Maynila%20General%20Luna,%20corner%20Muralla%20St,%20Intramuros,%20Manila,%201002%20Metro%20Manila+(Pamantasan%20ng%20Lungsod%20ng%20Maynila)&amp;t=&amp;z=19&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.maps.ie/population/">PLM</a></iframe>
           </div>
         </SimpleGrid>
       </Paper>

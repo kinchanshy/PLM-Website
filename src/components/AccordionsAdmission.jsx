@@ -6,6 +6,7 @@ function Accordions({ items }) {
     <div key={key}>
       {bullet.title && <Text fw="bold">{bullet.title}</Text>}
       {bullet.text && <Text ta="justify">{bullet.text}</Text>}
+      {bullet.texts && <Text ta="justify" fw={"bold"} style={{paddingTop: "1.5rem"}}>{bullet.texts}</Text>}
       {bullet.hasBullets ? (
         renderBullets(bullet.content, bullet.orderedList)
       ) : (
@@ -45,6 +46,9 @@ function Accordions({ items }) {
                       )}
                       {paragraph.text && (
                         <Text ta="justify">{paragraph.text}</Text>
+                      )}
+                      {paragraph.texts && (
+                        <Text ta="justify" fw={"bold"}>{paragraph.texts}</Text>
                       )}
                       <br />
                     </React.Fragment>

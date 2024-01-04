@@ -3,7 +3,6 @@ import { Text, Box, Divider, Button } from "@mantine/core";
 import PDF from "../../../components/PDF";
 
 function Charter({ title }) {
-  //const title = selectedSublink.toUpperCase();
   const pdfIframeRef = useRef(null);
 
   const download = () => {

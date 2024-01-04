@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, Box, Divider, List } from "@mantine/core";
+import { Text, Box, Divider, ActionIcon, Group, List } from "@mantine/core";
+import { IconBrandYoutubeFilled } from '@tabler/icons-react';
 
 
 function Hymn({ title }) {
@@ -42,89 +43,67 @@ the “Pamantasang Mahal”, PLM’s official hymn.
           <Text>Music: Prof. Felipe Padilla de Leon</Text>
       </div>
 
-      <div>
-        <Text fz="xl" fw="bold" p="md">
-          VIDEO TO HA!
-        </Text>
+      <div style={{ width: "100%", height: "100%", overflow: "hidden", border: "1rem solid #D9D9D9", borderRadius:".5rem" }}>
+        
+      <Group
+              gap={10}
+              wrap="nowrap"
+              style={{
+                background: "#D9D9D9",
+                paddingBottom:".5rem"
+              }}
+            >
+          <ActionIcon
+          variant="transparent"
+          c="black"
+          size={"lg"}
+        >
+              <IconBrandYoutubeFilled />
+          </ActionIcon>
+          <Text fw={"bold"} fz={"1rem"}>Youtube</Text>
+        </Group>
+        <iframe
+          src={"https://www.youtube.com/embed/yPf9vKW04cs"}
+          title={"Youtube Player"}
+          width="100%"
+          style={{ width: "100%", height: "60vh",}}
+        />
       </div>
 
-      <div>
-        <Text fz="xl" fw="bold" p="md">
+      <div style={{padding:"2rem 1rem 1rem 1rem" }}>
+        <Text fz="xl" fw="bold" >
         Pamantasang Mahal
         </Text>
       </div>
 
 
-      <div style={{ padding: "1rem" }}>
-          <Text fs={"italic"}>Official hymn of the Pamantasan ng Lungsod ng Maynila</Text>
+      <div style={{ fontStyle:"italic", padding: "1rem" }}>
+          <Text>Official hymn of the Pamantasan ng Lungsod ng Maynila</Text>
       </div>
-
-      <div style={{ padding: ".5rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Pamantasan, Pamantasang Mahal</Text>
-        </div> 
       
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Nagpupugay kami't nag-aalay</Text>
-        </div> 
-
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Ng Pag-ibig, taos na paggalang</Text>
-        </div> 
-
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Sa patnubay ng aming isipan.</Text>
-        </div> 
-
-
-      <div style={{ padding: ".5rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Karunungang tungo'y kaunlaran</Text>
-        </div> 
-      
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Hinuhubog kaming kabataan</Text>
-        </div> 
-
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Maging Pilipinong mero'ng dangal</Text>
-        </div> 
-
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Puso'y tigib ng kadakilaan.</Text>
-        </div> 
-
-
-      <div style={{ padding: ".5rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Pamantasang Lungsod ng Maynila</Text>
-        </div> 
-      
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Kaming lahat dito'y iyong punla</Text>
-        </div> 
-
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Tutuparin pangarap mo't nasa</Text>
-        </div> 
-
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Pamantasan kami'y nanunumpa.</Text>
-        </div> 
-
-      <div style={{ padding: ".5rem", marginTop: "-2rem" }}>
-        <Text p="xs" fs={"italic"}>
-        Pamantasan kami'y nanunumpa.</Text>
-        </div> 
+      <div style={{fontStyle:"italic", padding:"1rem"}}>
+        <List listStyleType="none">
+            <List.Item>Pamantasan, Pamantasang Mahal</List.Item>
+            <List.Item>Nagpupugay kami't nag-aalay</List.Item>
+            <List.Item>Ng Pag-ibig, taos na paggalang</List.Item>
+            <List.Item>Sa patnubay ng aming isipan.</List.Item>
+        </List>
+        <br />
+        <List listStyleType="none">
+            <List.Item>Karunungang tungo'y kaunlaran</List.Item>
+            <List.Item>Hinuhubog kaming kabataan</List.Item>
+            <List.Item>Maging Pilipinong mero'ng dangal</List.Item>
+            <List.Item>Puso'y tigib ng kadakilaan.</List.Item>
+        </List>
+        <br />
+        <List listStyleType="none">
+            <List.Item>Pamantasang Lungsod ng Maynila</List.Item>
+            <List.Item>Kaming lahat dito'y iyong punla</List.Item>
+            <List.Item>Tutuparin pangarap mo't nasa</List.Item>
+            <List.Item>Pamantasan kami'y nanunumpa.</List.Item>
+            <List.Item>Pamantasan kami'y nanunumpa.</List.Item>
+        </List>
+      </div>
     </Box>
   );
 }

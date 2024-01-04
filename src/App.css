@@ -143,4 +143,12 @@
   background-color: #cca525;
 }
 
+.buttons {
+  background-color: #A31920;
+}
+
+.buttons:hover {
+  background-color: #6a0000;
+}
+
 

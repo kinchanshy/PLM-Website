@@ -1,5 +1,10 @@
 export const links = [
   {
+    label: "Procurement Overview",
+    link: "/procurement/procurement-overview",
+    order: 1,
+  },
+  {
     label: "Annual Procurement Plan",
     link: "/procurement/annual-procurement-plan",
     order: 1,

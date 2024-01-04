@@ -3,9 +3,10 @@ import { Image, Text, Box, Divider } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import DownloadButton from "../../components/DownloadButton";
 import { texts } from "./links";
-import pic from "./Images/UnivProfile.png";
+import OBE1 from "./Images/OBE1.jpg";
+import OBE2 from "./Images/OBE2.jpg";
 
-function OBE({ title }) {
+function OBE() {
   const navigate = useNavigate();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -17,14 +18,18 @@ function OBE({ title }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {title}
+        Outcomes-Based Education (OBE)
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
       <div>
-        <Image maw={1000} src={pic} p="md" />
+        <Image maw={1000} src={OBE1} p="md" />
       </div>
-      <div></div>
+      <div>
+        <div>
+          <Image maw={1000} src={OBE2} p="md" />
+        </div>
+      </div>
     </Box>
   );
 }
