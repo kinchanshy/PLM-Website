@@ -12,6 +12,7 @@ import A_Magpantay from "../Images/A_Magpantay.jpg";
 import A_Atienza from "../Images/A_Atienza.jpg";
 import N_Gocuyo from "../Images/N_Gocuyo.jpg";
 import P_Rio from "../Images/P_Rio.jpg";
+import BR_Letrero from "../Images/BR_LETRERO.jpg";
 
 function Deans({ title }) {
   //const title = selectedSublink.toUpperCase();
@@ -833,7 +834,7 @@ function Deans({ title }) {
       <Grid.Col span={10}>
         <Card.Section style={{ position: 'relative', overflow: 'hidden' }}>
         <Image
-          src={DUMMY}
+          src={BR_Letrero}
           alt="No way!"
           style={{
             width: '70%', // Set the width to 100%

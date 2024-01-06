@@ -1,6 +1,9 @@
 import React from "react";
 import { Image, Text, Box, Divider, Grid } from "@mantine/core";
-import pic from "./Images/CRS.png";
+import pic2 from "./Images/AP_1.jpg";
+import pic1 from "./Images/PLM_2.jpg";
+import pic3 from "./Images/tbayan2.jpg";
+
 
 function Campus() {
   return (
@@ -34,7 +37,7 @@ function Campus() {
         }}
       >
         <Grid.Col span={20}>
-            <Image src={pic} p="md" />
+            <Image src={pic1} p="md" />
       </Grid.Col>
         <Grid.Col span={20}>
 
@@ -67,7 +70,7 @@ function Campus() {
             </div>
       </Grid.Col>
         <Grid.Col span={20}>
-            <Image src={pic} p="md" />
+            <Image src={pic2} p="md" />
       </Grid.Col>
       </Grid>
 
@@ -81,7 +84,7 @@ function Campus() {
         }}
       >
         <Grid.Col span={20}>
-            <Image src={pic} p="md" />
+            <Image src={pic3} p="md" />
       </Grid.Col>
         <Grid.Col span={20}>
 

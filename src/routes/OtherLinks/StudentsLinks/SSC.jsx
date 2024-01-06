@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Text, Box, Divider, Grid, Image, Group, ActionIcon, } from "@mantine/core";
-import pic from "./Images/CRS.png";
+import pic from "./Images/SSC.png";
 import { IconMail, IconBrandFacebook } from '@tabler/icons-react';
 import SCAccordion from "../../../components/Accordions";
 import { accordionItems } from "./links";

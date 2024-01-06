@@ -1,8 +1,10 @@
 import React from "react";
-import { Button, Text, Box, Divider, Grid, List } from "@mantine/core";
+import { Button, Text, Box, Divider, Grid, Image, Space, Card } from "@mantine/core";
+import new_pres from "../Images/new_pres.png";
+import univ_pres from "../Images/univ_president.jpg";
+import pres_sonny from "../Images/Pres_sonny.jpg";
 
 function President({ title }) {
-  //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -17,6 +19,32 @@ function President({ title }) {
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
+
+      <Space h="xl" />
+        
+      <Card
+        shadow="sm"
+        component="a"
+        target="_blank"
+      >
+        <Card.Section style={{ position: 'relative', overflow: 'hidden' }}>
+          <Image
+              src={new_pres}
+              alt="No way!"
+              style={{
+                width: '100%', // Set the width to 100%
+                height: '100%', // Set the height to 100%
+                objectFit: 'cover', // Crop the image to cover the container
+                transformOrigin: 'top left', // Set the origin of the transformation to the top
+              }}
+            />
+            </Card.Section>
+            <div>
+            <Text mt="xs" size="sm" style={{fontStyle:"italic"}}>
+            Atty. Domingo Reyes Jr. is the 11th duly-elected president of PLM
+            </Text>
+          </div>
+      </Card>
       
       <div style={{ padding: "1rem" }}>
           <Text>Pamantasan ng Lungsod Maynila is proud to announce Atty. Domingo Reyes, Jr. as the new President of the university. Atty. Reyes is poised to lead PLM to new heights in the years to come with his impressive background and a commitment to excellence in higher education. He is a writer, professor, lecturer, speaker, consultant and PAASCU accreditor, among others, and committed to public service.</Text>
@@ -33,6 +61,42 @@ function President({ title }) {
       <div style={{ padding: "1rem" }}>
           <Text>As President Reyes takes the helm at PLM, together with the newly appointed Board of Regents, Dr. Joseph Berlin Juanzon, Dr. Neri Pescadera, and PLM’s new Board of Regents Chairperson Atty. Edward Serapio. With incumbent Board of Regents Wilma Galvante and Rita Riddle, they will work collaboratively with students, faculty, staff, and the broader community to continue building on the university's proud tradition of academic excellence and innovation. Their leadership will be instrumental in advancing our commitment to fostering a diverse and inclusive campus environment that embraces the full spectrum of human potential.</Text>
       </div>
+
+      <Grid
+        columns={30}
+        gutter={"-3rem"}
+      >
+
+          <Grid.Col span={10}>
+            <Image
+                src={univ_pres}
+                alt="No way!"
+                style={{
+                  width: '100%', // Set the width to 100%
+                  height: '100%', // Set the height to 100%
+                  objectFit: 'cover', // Crop the image to cover the container
+                  transformOrigin: 'top left', // Set the origin of the transformation to the top
+                  borderRadius: 7
+                }}
+              />
+            </Grid.Col>
+
+            <Grid.Col span={20}>
+              <Image
+                src={pres_sonny}
+                alt="No way!"
+                style={{
+                  width: '100%', // Set the width to 100%
+                  height: '100%', // Set the height to 100%
+                  objectFit: 'cover', // Crop the image to cover the container
+                  transformOrigin: 'top left', // Set the origin of the transformation to the top
+                  borderRadius: 7
+                }}
+              />
+          </Grid.Col>
+        </Grid>
+
+      <Divider />
 
       <div>
         <Text fz="xl" fw="bold" p="md">

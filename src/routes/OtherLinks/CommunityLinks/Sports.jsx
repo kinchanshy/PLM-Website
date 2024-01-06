@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, Text, Box, Divider, Grid } from "@mantine/core";
-import pic from "./Images/CRS.png";
+import pic from "./Images/intrams.jpg";
 
 function Sports() {
   return (
@@ -23,12 +23,10 @@ function Sports() {
         style={{
           display: "flex",
           paddingTop: "2rem",
-         
-          
         }}
       >
         <Grid.Col span={20}>
-            <Image src={pic} p="md" />
+            <Image src={pic} p="sm" height={"75%"}/>
       </Grid.Col>
         <Grid.Col span={20}>
 

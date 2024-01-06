@@ -6,6 +6,7 @@ import {
   ActionIcon,
   Tooltip,
   Group,
+  Image
 } from "@mantine/core";
 import {
   IconBrandFacebookFilled,
@@ -14,6 +15,7 @@ import {
   IconBrandX,
 } from "@tabler/icons-react";
 import BusinessCard from "../../../components/BusinessCardFooter";
+import pic from "../../../assets/homepage.png";
 
 function Guide() {
 
@@ -109,6 +111,10 @@ function Guide() {
               <List.Item>Community: This section provides information and engagement for the community of PLM, such as campus, events, sports, immigration and visa, and downloads.</List.Item>
               <List.Item>PLM email login: This section allows the users to access their PLM email account. The users need to enter their PLM email address and password to log in.</List.Item>
             </List>
+          </div>
+
+          <div style={{display: "flex", justifyContent:"center", alignItems: "center"}}>
+            <Image src={pic} p="md" style={{width:"50%"}}/>
           </div>
 
           <div style={{paddingTop: "1.5rem"}}>

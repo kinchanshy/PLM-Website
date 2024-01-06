@@ -25,7 +25,7 @@ function VISA() {
       </div>
 
       <div style={{ padding: "1rem"}}>
-        <Text>Check our academic programs or email us at registrar@plm.edu.ph for inquiries.</Text>
+        <Text>Check our <a style={{textDecoration:"none"}} href="/academics/academic-overview">academic programs</a> or email us at <a style={{textDecoration:"none"}} href="mailto:registrar@plm.edu.ph">registrar@plm.edu.ph</a> for inquiries.</Text>
       </div>
 
       <div style={{ padding: "1rem"}}>

@@ -194,7 +194,7 @@ export const plmatAccordion = [
     content:
     [
       {
-        text: "STEPS",
+        texts: "STEPS",
         orderedList: false,
         hasBullets: true,
         content: [
@@ -254,7 +254,7 @@ export const plmatAccordion = [
     content:
     [
       {
-        text: "College of Architecture and Urban Planning (CAUP) ",
+        texts: "College of Architecture and Urban Planning (CAUP) ",
         orderedList: false,
         hasBullets: true,
         content: [
@@ -264,7 +264,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "PLM Business School (PLM BS) ",
+        texts: "PLM Business School (PLM BS) ",
         orderedList: false,
         hasBullets: true,
         content:[
@@ -295,7 +295,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "College of Engineering (CoE) ",
+        texts: "College of Engineering (CoE) ",
         orderedList: false,
         hasBullets: true,
         content: [
@@ -329,7 +329,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "College of Humanities, Arts and Social Sciences (CHASS) ",
+        texts: "College of Humanities, Arts and Social Sciences (CHASS) ",
         hasBullets: true,
         orderedList: false,
         content: [
@@ -342,7 +342,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "School of Social Work (SoSW) ",
+        texts: "School of Social Work (SoSW) ",
         orderedList: false,
         hasBullets: true,
         content:[
@@ -352,7 +352,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "College of Nursing (CN) ",
+        texts: "College of Nursing (CN) ",
         orderedList: false,
         hasBullets: true,
         content:[
@@ -362,7 +362,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "College of Physical Therapy (CPT) ",
+        texts: "College of Physical Therapy (CPT) ",
         orderedList: false,
         hasBullets: true,
         content: [
@@ -372,7 +372,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "College of Science (CS) ",
+        texts: "College of Science (CS) ",
         orderedList: false,
         hasBullets: true,
         content:[
@@ -391,7 +391,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "College of Education (CED) ",
+        texts: "College of Education (CED) ",
         orderedList: false,
         hasBullets: true,
         content:[
@@ -419,7 +419,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "School of Government (SOG)",
+        texts: "School of Government (SOG)",
         orderedList: false,
         hasBullets: true,
         content:[
@@ -438,7 +438,7 @@ export const plmatAccordion = [
     content:
     [
       {
-        text: "How will the successful candidates be selected? ",
+        texts: "How will the successful candidates be selected? ",
         orderedList: false,
         hasBullets: true,
         content:[
@@ -448,7 +448,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "How much is the application fee? ",
+        texts: "How much is the application fee? ",
         orderedList: false,
         hasBullets: true,
         content:[
@@ -458,7 +458,7 @@ export const plmatAccordion = [
         ]
       },
       {
-        text: "How much is the tuition fee? ",
+        texts: "How much is the tuition fee? ",
         orderedList: false,
         hasBullets: true,
         content:[
@@ -484,7 +484,7 @@ export const mcatAccordion = [
         
       },
       {
-        text: "Qualifications:",
+        texts: "Qualifications:",
         orderedList: false,
         hasBullets: true,
         content: [
@@ -747,7 +747,7 @@ export const clatAccordion = [
     content:
     [
       {
-        text: "The PLM College of Law maintains a scholarship program care for the deserving and qualified students in need who are residents of Manila.",
+        texts: "The PLM College of Law maintains a scholarship program care for the deserving and qualified students in need who are residents of Manila.",
         
       },
     ],
@@ -760,7 +760,7 @@ export const clatAccordion = [
     content:
     [
       {
-        text: "How will the successful candidates be selected?",
+        texts: "How will the successful candidates be selected?",
       },
       {
         text: "Acceptance to the college will be based on the satisfaction of the following:",
