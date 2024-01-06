@@ -1,8 +1,8 @@
 import React from "react";
-import { List, Text, Box, Divider, Grid } from "@mantine/core";
+import { Text, Box, Divider, Button } from "@mantine/core";
 
-function StudentManual({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+function StudentManual() {
+
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -13,7 +13,7 @@ function StudentManual({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          STUDENT MANUAL
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -40,6 +40,18 @@ function StudentManual({ selectedLink }) {
         <Text p="xs">
         As the primary stakeholders of PLM, the students are the foremost consideration of the rules and regulations being implemented. Moreover, the University expands its horizons in terms of the services it offers essentially for the poor but deserving students of the City of Manila. This is because the University does not only respond to its mandate but most especially upholds the best welfare of the students.
         </Text>
+      </div>
+
+      <div style={{ padding: "1rem" }}>
+        <Button
+          radius="md"
+          className="button"
+          c="black"
+          uppercase
+          onClick={() => { window.location.href = "https://www.plm.edu.ph/images/downloads/manuals/PLM_Student_Manual_v1.pdf"; } }
+        >
+          <Text>Download Student Manual</Text>
+        </Button>
       </div>
     </Box>
   );

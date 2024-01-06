@@ -149,59 +149,49 @@ function AdmissionsShell() {
           >
             <Divider size="sm" />
           </div>
-
           <div
             style={{
-              height: "80svh",
+              display: "flex",
+              alignItems: "start",
+              gap: "2rem",
+              backgroundColor: "#fff",
+              zIndex: "1",
+              height: "100vh",
             }}
           >
-            <ScrollArea
-              h="75svh"
-              scrollbarSize={1}
-              offsetScrollbars
-              viewportRef={viewport}
-            >
-              <Grid columns={24}>
-                <Grid.Col span={6}>
-                  <Sidebar
-                    title={selectedLink}
-                    links={links}
-                    onLinkClick={handleLinkClick}
-                    currentRoute={location.pathname}
-                    scrollToTop={handleScrollToTop}
+            <div style={{ minWidth: "30vw", position: "sticky", top: "0" }}>
+              <Sidebar
+                title={selectedLink}
+                links={links}
+                onLinkClick={handleLinkClick}
+                currentRoute={location.pathname}
+                scrollToTop={handleScrollToTop}
+              />
+            </div>
+            <div>
+              <Routes>
+                <Route path="/" element={<Outlet />}>
+                  <Route
+                    path="admission-overview"
+                    element={<AdmissionOverview />}
                   />
-                </Grid.Col>
-                <Grid.Col span="auto">
-                  <Container>
-                    <Routes>
-                      <Route path="/" element={<Outlet />}>
-                        <Route
-                          path="admission-overview"
-                          element={<AdmissionOverview title={selectedLink} />}
-                        />
-                        <Route path="plm-admission-test" element={<PLMAT />} />
-                        <Route
-                          path="medical-college-admission-test"
-                          element={<MCAT />}
-                        />
-                        <Route
-                          path="college-of-law-admission-test"
-                          element={<CLAT />}
-                        />
-                        <Route
-                          path="undergraduate-programs"
-                          element={<Programs />}
-                        />
-                        <Route
-                          path="scholarship-and-financial-aid"
-                          element={<Scholarship />}
-                        />
-                      </Route>
-                    </Routes>
-                  </Container>
-                </Grid.Col>
-              </Grid>
-            </ScrollArea>
+                  <Route path="plm-admission-test" element={<PLMAT />} />
+                  <Route
+                    path="medical-college-admission-test"
+                    element={<MCAT />}
+                  />
+                  <Route
+                    path="college-of-law-admission-test"
+                    element={<CLAT />}
+                  />
+                  <Route path="undergraduate-programs" element={<Programs />} />
+                  <Route
+                    path="scholarship-and-financial-aid"
+                    element={<Scholarship />}
+                  />
+                </Route>
+              </Routes>
+            </div>
           </div>
         </div>
         <QuickLinks />

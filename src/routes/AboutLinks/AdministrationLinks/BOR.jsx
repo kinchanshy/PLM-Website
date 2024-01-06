@@ -7,7 +7,7 @@ import JBP_Juanson from "../Images/JBP_Juanson.jpg";
 import R_Riddle from "../Images/R_Riddle.jpg";
 import CFC_Castro from "../Images/CFC_Castro.jpg";
 
-function BOR({ selectedSublink }) {
+function BOR({ title }) {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -18,7 +18,7 @@ function BOR({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -61,6 +61,8 @@ function BOR({ selectedSublink }) {
           justifyContent: "center",
         }}
       >
+        <Grid.Col span={10} />
+
         <Grid.Col span={10}>
           <Card shadow="sm" padding="xl" component="a" target="_blank">
             <Card.Section style={{ position: "relative", overflow: "hidden" }}>
@@ -193,6 +195,7 @@ function BOR({ selectedSublink }) {
           justifyContent: "center",
         }}
       >
+        <Grid.Col span={5} />
         <Grid.Col span={10}>
           <Card shadow="sm" padding="xl" component="a" target="_blank">
             <Card.Section style={{ position: "relative", overflow: "hidden" }}>

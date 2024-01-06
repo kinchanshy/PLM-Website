@@ -230,61 +230,61 @@ function AboutShell() {
                             path="vision-and-mission"
                             element={<VM title={selectedSublink} />}
                           />
-                          <Route path="seal-and-symbols" element={<Seal />} />
-                          <Route path="history" element={<History />} />
-                          <Route path="university-hymn" element={<Hymn />} />
+                          <Route path="seal-and-symbols" element={<Seal title={selectedSublink}/>} />
+                          <Route path="history" element={<History title={selectedSublink}/>} />
+                          <Route path="university-hymn" element={<Hymn title={selectedSublink}/>} />
                           <Route
                             path="university-charter"
-                            element={<Charter />}
+                            element={<Charter title={selectedSublink}/>}
                           />
-                          <Route path="university-code" element={<Code />} />
-                          <Route path="university-map" element={<Map />} />
+                          <Route path="university-code" element={<Code title={selectedSublink}/>} />
+                          <Route path="university-map" element={<Map title={selectedSublink}/>} />
                           <Route
                             path="academic-thrusts"
-                            element={<Thrusts />}
+                            element={<Thrusts title={selectedSublink}/>}
                           />
-                          <Route path="facilities" element={<Facilities />} />
+                          <Route path="facilities" element={<Facilities title={selectedSublink}/>} />
                         </Route>
                         <Route
                           path="outcome-based-education"
-                          element={<OBE />}
+                          element={<OBE title={selectedSublink}/>}
                         />
                         <Route path="administration/*" element={<Outlet />}>
                           <Route index element={<Administration />} />
-                          <Route path="board-of-regents" element={<BOR />} />
-                          <Route path="the-president" element={<President />} />
+                          <Route path="board-of-regents" element={<BOR title={selectedSublink}/>} />
+                          <Route path="the-president" element={<President title={selectedSublink}/>} />
                           <Route
                             path="vice-president-&-assistant-vice-presidents"
-                            element={<VP />}
+                            element={<VP title={selectedSublink}/>}
                           />
                           <Route
                             path="directors-and-chiefs"
-                            element={<Directors />}
+                            element={<Directors title={selectedSublink}/>}
                           />
-                          <Route path="deans" element={<Deans />} />
+                          <Route path="deans" element={<Deans title={selectedSublink}/>} />
                           <Route
                             path="organizational-chart"
-                            element={<OrgChart />}
+                            element={<OrgChart title={selectedSublink}/>}
                           />
                           <Route
                             path="presidential-support-staff"
-                            element={<SupportStaff />}
+                            element={<SupportStaff title={selectedSublink}/>}
                           />
                         </Route>
                         <Route path="pride-hall" element={<Outlet />}>
-                          <Route index element={<PrideHall />} />
+                          <Route index element={<PrideHall title={selectedSublink}/>} />
                           <Route
                             path="board-exam-passers"
-                            element={<BoardPassers />}
+                            element={<BoardPassers title={selectedSublink}/>}
                           />
-                          <Route path="awards" element={<Awards />} />
+                          <Route path="awards" element={<Awards title={selectedSublink}/>} />
                           <Route
                             path="outstanding-alumni"
-                            element={<Outstanding />}
+                            element={<Outstanding title={selectedSublink}/>}
                           />
-                          <Route path="model-employees" element={<Model />} />
+                          <Route path="model-employees" element={<Model title={selectedSublink}/>} />
                         </Route>
-                        <Route path="contact" element={<Contact />} />
+                        <Route path="contact" element={<Contact title={selectedSublink}/>} />
                       </Route>
                     </Routes>
                     <Divider

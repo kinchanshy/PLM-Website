@@ -1,9 +1,8 @@
 import React from "react";
 import { Image, Text, Box, Divider, Grid } from "@mantine/core";
-import pic from "./Images/CRS.png";
+import pic from "./Images/intrams.jpg";
 
-function Sports({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+function Sports() {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -14,7 +13,7 @@ function Sports({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          SPORTS (ALCU GAMES)
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -24,12 +23,10 @@ function Sports({ selectedLink }) {
         style={{
           display: "flex",
           paddingTop: "2rem",
-         
-          
         }}
       >
         <Grid.Col span={20}>
-            <Image src={pic} p="md" />
+            <Image src={pic} p="sm" height={"75%"}/>
       </Grid.Col>
         <Grid.Col span={20}>
 

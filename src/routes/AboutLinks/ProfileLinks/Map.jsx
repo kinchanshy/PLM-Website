@@ -1,8 +1,10 @@
 import React from "react";
-import { Image, Text, Box, Divider, } from "@mantine/core";
+import { Image, Text, Box, Divider, Grid, Space } from "@mantine/core";
+import map1 from "../Images/map1.jpg";
+import map2 from "../Images/map2.jpg";
 
 
-function Map({ selectedSublink }) {
+function Map({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -14,16 +16,48 @@ function Map({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
+      
+      <Grid
+        columns={20}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          
+        }}
+      >
 
-      <div>
-        <Text fz="xl" fw="bold" p="md">
-        PICTURE ITO HA!
-        </Text>
-      </div>
+      <Grid.Col span={10}>
+        <Image
+            src={map1}
+            alt="No way!"
+            style={{
+              width: '100%', // Set the width to 100%
+              height: '100%', // Set the height to 100%
+              objectFit: 'cover', // Crop the image to cover the container
+              transformOrigin: 'top left', // Set the origin of the transformation to the top
+            }}
+          />
+        </Grid.Col>
+
+        <Grid.Col span={10}>
+          <Image
+            src={map2}
+            alt="No way!"
+            style={{
+              width: '100%', // Set the width to 100%
+              height: '100%', // Set the height to 100%
+              objectFit: 'cover', // Crop the image to cover the container
+              transformOrigin: 'top left', // Set the origin of the transformation to the top
+            }}
+          />
+      </Grid.Col>
+    </Grid>
+
+    <Space h="lg" />
 
       <div>
         <Text fz="xl" fw="bold" p="md">

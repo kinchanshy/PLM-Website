@@ -7,7 +7,7 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-import { Grid, Text, Space, Divider, Container } from "@mantine/core";
+import { Grid, Text, Space, Divider, Container, ScrollArea, } from "@mantine/core";
 import { links } from "./links";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
@@ -27,6 +27,10 @@ function CommunityShell() {
   const [selectedLink, setSelectedLink] = useState(null);
   const [selectedSublink, setSelectedSublink] = useState(null);
   const [activeSidebarIndex, setActiveSidebarIndex] = useState(null);
+  const viewport = useRef(null);
+
+  const scrollToTop = () =>
+    viewport.current.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
@@ -137,32 +141,47 @@ function CommunityShell() {
           >
             <Divider size="sm" />
           </div>
-          <Grid columns={24}>
-            <Grid.Col span={6}>
-              <Container>
-                <Sidebar
-                  title={selectedLink}
-                  links={links}
-                  onLinkClick={handleLinkClick}
-                  currentRoute={location.pathname}
-                />
-              </Container>
-            </Grid.Col>
-            <Grid.Col span="auto">
-              <div style={{ height: "100vh", width: "100%" }}>
+
+          <ScrollArea
+              h="75svh"
+              scrollbarSize={1}
+              offsetScrollbars
+              viewportRef={viewport}
+            >
+            <Grid columns={24}>
+              <Grid.Col span={6}>
                 <Container>
-                  <Routes>
-                    <Route path="/" element={<Outlet />}>
-                      <Route path="campus" element={<Campus />} />
-                      <Route path="events" element={<Events />} />
-                      <Route path="sports" element={<Sports />} />
-                      <Route path="immigration-and-visa" element={<VISA />} />
-                    </Route>
-                  </Routes>
+                  <Sidebar
+                    title={selectedLink}
+                    links={links}
+                    onLinkClick={handleLinkClick}
+                    currentRoute={location.pathname}
+                    scrollToTop={handleScrollToTop}
+                  />
                 </Container>
-              </div>
-            </Grid.Col>
-          </Grid>
+              </Grid.Col>
+              <Grid.Col span="auto">
+                  <Container>
+                    <Routes>
+                      <Route path="/" element={<Outlet />}>
+                        <Route path="campus" element={<Campus />} />
+                        <Route path="events" element={<Events />} />
+                        <Route path="sports" element={<Sports />} />
+                        <Route path="immigration-and-visa" element={<VISA />} />
+                      </Route>
+                    </Routes>
+                    <Divider
+                      variant="dashed"
+                      label="Scroll to top"
+                      labelPosition="center"
+                      color="#6a0000"
+                      onClick={scrollToTop}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </Container>
+              </Grid.Col>
+            </Grid>
+          </ScrollArea>
           <QuickLinks />
         </div>
       </div>

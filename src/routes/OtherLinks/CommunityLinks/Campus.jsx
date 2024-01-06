@@ -1,9 +1,11 @@
 import React from "react";
 import { Image, Text, Box, Divider, Grid } from "@mantine/core";
-import pic from "./Images/CRS.png";
+import pic2 from "./Images/AP_1.jpg";
+import pic1 from "./Images/PLM_2.jpg";
+import pic3 from "./Images/tbayan2.jpg";
 
-function Campus({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+
+function Campus() {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -14,7 +16,7 @@ function Campus({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          CAMPUS
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -35,7 +37,7 @@ function Campus({ selectedLink }) {
         }}
       >
         <Grid.Col span={20}>
-            <Image src={pic} p="md" />
+            <Image src={pic1} p="md" />
       </Grid.Col>
         <Grid.Col span={20}>
 
@@ -68,7 +70,7 @@ function Campus({ selectedLink }) {
             </div>
       </Grid.Col>
         <Grid.Col span={20}>
-            <Image src={pic} p="md" />
+            <Image src={pic2} p="md" />
       </Grid.Col>
       </Grid>
 
@@ -82,7 +84,7 @@ function Campus({ selectedLink }) {
         }}
       >
         <Grid.Col span={20}>
-            <Image src={pic} p="md" />
+            <Image src={pic3} p="md" />
       </Grid.Col>
         <Grid.Col span={20}>
 

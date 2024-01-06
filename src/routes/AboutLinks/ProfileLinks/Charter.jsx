@@ -2,8 +2,7 @@ import React, { useRef } from "react";
 import { Text, Box, Divider, Button } from "@mantine/core";
 import PDF from "../../../components/PDF";
 
-function Charter({ selectedSublink }) {
-  //const title = selectedSublink.toUpperCase();
+function Charter({ title }) {
   const pdfIframeRef = useRef(null);
 
   const download = () => {
@@ -26,7 +25,7 @@ function Charter({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

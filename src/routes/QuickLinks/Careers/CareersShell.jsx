@@ -7,7 +7,7 @@ import {
   Route,
   Outlet,
 } from "react-router-dom";
-import { Text, Space, Divider, Container, Grid } from "@mantine/core";
+import { Text, Space, Divider, Container, Grid, ScrollArea } from "@mantine/core";
 import { links } from "./links";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
@@ -25,6 +25,10 @@ function CareersShell() {
   const [selectedLink, setSelectedLink] = useState(null);
   const [selectedSublink, setSelectedSublink] = useState(null);
   const [activeSidebarIndex, setActiveSidebarIndex] = useState(null);
+  const viewport = useRef(null);
+
+  const scrollToTop = () =>
+    viewport.current.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
@@ -137,6 +141,12 @@ function CareersShell() {
             <Divider size="sm" />
           </div>
           <div style={{ height: "100vh", backgroundColor: "#fff" }}>
+            <ScrollArea
+                h="75svh"
+                scrollbarSize={1}
+                offsetScrollbars
+                viewportRef={viewport}
+              >
             <Grid columns={24}>
               <Grid.Col span={6}>
                 <Container>
@@ -160,10 +170,19 @@ function CareersShell() {
                         />
                       </Route>
                     </Routes>
+                    <Divider
+                      variant="dashed"
+                      label="Scroll to top"
+                      labelPosition="center"
+                      color="#6a0000"
+                      onClick={scrollToTop}
+                      style={{ cursor: "pointer" }}
+                    />
                   </Container>
                 </div>
               </Grid.Col>
             </Grid>
+            </ScrollArea>
           </div>
           <QuickLinks />
         </div>

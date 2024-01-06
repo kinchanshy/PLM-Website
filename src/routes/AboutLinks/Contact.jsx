@@ -12,7 +12,7 @@ import {
   officesElements,
 } from "./links";
 
-function Contacts({ selectedLink }) {
+function Contacts() {
   const navigate = useNavigate();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -24,7 +24,7 @@ function Contacts({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          Contact
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

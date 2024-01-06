@@ -2,7 +2,7 @@ import React from "react";
 import { Image, Text, Box, Divider, Grid } from "@mantine/core";
 import PLMLogo from "../../../assets/Logo/PLMLogo.png";
 
-function Seal({ selectedSublink }) {
+function Seal({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -14,7 +14,7 @@ function Seal({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

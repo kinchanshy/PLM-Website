@@ -1,13 +1,12 @@
 import React from "react";
 import { Card, Text, Box, Divider, Grid, Image, Group, ActionIcon, } from "@mantine/core";
-import pic from "./Images/CRS.png";
+import pic from "./Images/SSC.png";
 import { IconMail, IconBrandFacebook } from '@tabler/icons-react';
 import SCAccordion from "../../../components/Accordions";
 import { accordionItems } from "./links";
 
 
-function SSC({ selectedLink }) {
-  //const title = selectedLink.toUpperCase();
+function SSC() {
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
       <div
@@ -18,7 +17,7 @@ function SSC({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          STUDENT COUNCIL
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

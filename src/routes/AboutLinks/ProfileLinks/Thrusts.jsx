@@ -2,7 +2,7 @@ import React from "react";
 import { Text, Box, Divider, List } from "@mantine/core";
 
 
-function AcadThrusts({ selectedSublink }) {
+function AcadThrusts({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -14,7 +14,7 @@ function AcadThrusts({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -27,24 +27,24 @@ brightest, and most compassionate:
       </div>
 
       <div style={{ padding: "1rem" }}>
-        <List style={{listStyle: "none"}}>
+        <List type="ordered">
           <List.Item>
-            <Text>1. Education is a right and an equalizer</Text>
+            <Text>Education is a right and an equalizer</Text>
           </List.Item>
           <List.Item>
-            <Text>2. Quality education upheld</Text>
+            <Text>Quality education upheld</Text>
           </List.Item>
           <List.Item>
-            <Text>3. Catalyst and resource for good governance</Text>
+            <Text>Catalyst and resource for good governance</Text>
           </List.Item>
           <List.Item>
-            <Text>4. Mobilizing resources efficiently</Text>
+            <Text>Mobilizing resources efficiently</Text>
           </List.Item>
           <List.Item>
-            <Text>5. Keeping academic freedom, creative thinking, and collective action alive</Text>
+            <Text>Keeping academic freedom, creative thinking, and collective action alive</Text>
           </List.Item>
           <List.Item>
-            <Text>6. Continuous faculty and staff development</Text>
+            <Text>Continuous faculty and staff development</Text>
           </List.Item>
         </List>
       </div>

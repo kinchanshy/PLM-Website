@@ -1,3 +1,14 @@
+import cradle from "../StudentsLinks/Images/cradle.jpg";
+import css from "../StudentsLinks/Images/css.jpg";
+import ecess from "../StudentsLinks/Images/ecess.jpg";
+import gdsc from "../StudentsLinks/Images/gdsc.jpg";
+import it from "../StudentsLinks/Images/it.jpg";
+import magwayen from "../StudentsLinks/Images/magwayen.jpg";
+import prelaw from "../StudentsLinks/Images/prelaw.jpg";
+import santelmo from "../StudentsLinks/Images/santelmo.jpg";
+import tugon from "../StudentsLinks/Images/tugon.jpg";
+import plm from "../../../assets/Logo/banner.png";
+
 export const links = [
   {
     label: "Students Overview",
@@ -70,15 +81,15 @@ export const texts = [
 ];
 
 export const orgs = [
-  { name: "cradle", image: cradle },
-  { name: "css", image: css },
-  { name: "ecess", image: ecess },
-  { name: "gdsc", image: gdsc },
-  { name: "it", image: it },
-  { name: "magwayen", image: magwayen },
-  { name: "prelaw", image: prelaw },
-  { name: "santelmo", image: santelmo },
-  { name: "tugon", image: tugon },
+  { name: "PLM CRADLE", image: cradle },
+  { name: "COMPUTER SCIENCE SOCIETY", image: css },
+  { name: "ELECTRONICS ENGINEERING STUDENT'S SOCIETY", image: ecess },
+  { name: "Google Developer Student Clubs PLM", image: gdsc },
+  { name: "PLM SOciety of Information Technology Enthusiats", image: it },
+  { name: "Magwayen Creative Scholars' Guild", image: magwayen },
+  { name: "PLM Pre-Law Society", image: prelaw },
+  { name: "SANTELMO ARTS", image: santelmo },
+  { name: "PLM TUGON RESCUE", image: tugon },
 ];
 
 export const accordionItems = [
@@ -165,5 +176,56 @@ export const accordionItems = [
         text: "Facebook: https://www.facebook.com/plmchasssc",
       },
     ],
+  },
+];
+
+export const crs = [
+  {
+    id: 1,
+    imageSrc: plm,
+    altText: "CRS",
+    centerText: "CRS",
+    link: "https://plm.edu.ph/crs",
+    title: "Undergraduate and College of Law Students",
+  },
+  {
+    id: 2,
+    imageSrc: plm,
+    altText: "CRSCM",
+    centerText: "CRSCM",
+    link: "https://web3.plm.edu.ph/crscm",
+    title: "College of Medicine Students",
+  },
+  {
+    id: 3,
+    imageSrc: plm,
+    altText: "GSP",
+    centerText: "GSP",
+    link: "https://plm.edu.ph/gsp",
+    title: "Graduate Students",
+  },
+  {
+    id: 4,
+    imageSrc: plm,
+    altText: "SFE",
+    centerText: "SFE",
+    link: "https://web2.plm.edu.ph/sfe",
+    title: "Student's Faculty Evaluation System",
+  },
+  {
+    id: 5,
+    imageSrc: plm,
+    altText: "S201MS",
+    centerText: "S201MS",
+    link: "https://web5.plm.edu.ph/201Jacket",
+    title: "Student 201 Management System",
+  },
+  {
+    id: 6,
+    imageSrc: plm,
+    altText: "ARS",
+    centerText: "ARS",
+    link: "https://web2.plm.edu.ph/ars/login",
+    title: "Alumni Registry",
   },
 ];

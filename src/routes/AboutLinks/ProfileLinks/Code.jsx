@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { Text, Box, Divider, Button } from "@mantine/core";
-import PDF from "../../../Components/PDF";
+import PDF from "../../../components/PDF";
 
 
 
-function Code({ selectedSublink }) {
+function Code({ title }) {
   //const title = selectedSublink.toUpperCase();
   const pdfIframeRef = useRef(null);
 
@@ -28,7 +28,7 @@ function Code({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />

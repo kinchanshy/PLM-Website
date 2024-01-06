@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useWindowScroll } from "@mantine/hooks";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Text, Space, Divider, Container } from "@mantine/core";
+import { Text, Space, Divider, Container, ScrollArea,} from "@mantine/core";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
 import Partners from "./Partners";
@@ -16,6 +16,10 @@ function PartnersShell() {
   const [selectedLink, setSelectedLink] = useState(null);
   const [selectedSublink, setSelectedSublink] = useState(null);
   const [activeSidebarIndex, setActiveSidebarIndex] = useState(null);
+  const viewport = useRef(null);
+
+  const scrollToTop = () =>
+    viewport.current.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
@@ -122,9 +126,22 @@ function PartnersShell() {
             <Divider size="sm" />
           </div>
           <div style={{ height: "100vh", backgroundColor: "#fff" }}>
-            <Container>
-              <Partners />
-            </Container>
+            <ScrollArea
+                h="75svh"
+                scrollbarSize={1}
+                offsetScrollbars
+                viewportRef={viewport}
+              >
+                <Partners />
+                <Divider
+                      variant="dashed"
+                      label="Scroll to top"
+                      labelPosition="center"
+                      color="#6a0000"
+                      onClick={scrollToTop}
+                      style={{ cursor: "pointer" }}
+                    />
+            </ScrollArea>
           </div>
           <QuickLinks />
         </div>

@@ -1,16 +1,14 @@
 import React from "react";
 import {
-  Image,
   Text,
   Box,
   Divider,
-  SimpleGrid,
-  Tooltip,
 } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
-import pic from "./Images/CRS.png";
+import { crs } from "./links";
+import Picture from "../../../components/Picture";
 
-function StudentCRS({ selectedLink }) {
+function StudentCRS() {
   const navigate = useNavigate();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -22,7 +20,7 @@ function StudentCRS({ selectedLink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedLink}
+          COMPUTERIZED REGISTRATION SYSTEM
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -32,147 +30,24 @@ function StudentCRS({ selectedLink }) {
           access their student records using the links below:
         </Text>
       </div>
-      <SimpleGrid cols={3} p="md">
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image maw={250} src={pic} />
-          <Tooltip label={<Text>Visit Site</Text>}>
-            <Text
-              className="site"
-              fz="sm"
-              fw="bold"
-              ta="center"
-              onClick={() => {
-                window.open("https://plm.edu.ph/crs", "_blank");
-              }}
-            >
-              Undergraduate and College of Law Students
-            </Text>
-          </Tooltip>
-        </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image maw={250} src={pic} />
-          <Tooltip label={<Text>Visit Site</Text>}>
-            <Text
-              className="site"
-              fz="sm"
-              fw="bold"
-              ta="center"
-              onClick={() => {
-                window.open("https://web3.plm.edu.ph/crscm", "_blank");
-              }}
-            >
-              College of Medicine Students
-            </Text>
-          </Tooltip>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image maw={250} src={pic} />
-          <Tooltip label={<Text>Visit Site</Text>}>
-            <Text
-              className="site"
-              fz="sm"
-              fw="bold"
-              ta="center"
-              onClick={() => {
-                window.open("https://plm.edu.ph/gsp", "_blank");
-              }}
-            >
-              Graduate Students
-            </Text>
-          </Tooltip>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image maw={250} src={pic} />
-          <Tooltip label={<Text>Visit Site</Text>}>
-            <Text
-              className="site"
-              fz="sm"
-              fw="bold"
-              ta="center"
-              onClick={() => {
-                window.open("https://web2.plm.edu.ph/sfe", "_blank");
-              }}
-            >
-              Student's Faculty Evaluation System
-            </Text>
-          </Tooltip>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image maw={250} src={pic} />
-          <Tooltip label={<Text>Visit Site</Text>}>
-            <Text
-              className="site"
-              fz="sm"
-              fw="bold"
-              ta="center"
-              onClick={() => {
-                window.open("https://web5.plm.edu.ph/201Jacket", "_blank");
-              }}
-            >
-              Student 201 Management System
-            </Text>
-          </Tooltip>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Image maw={250} src={pic} />
-          <Tooltip label={<Text>Visit Site</Text>}>
-            <Text
-              className="site"
-              fz="sm"
-              fw="bold"
-              ta="center"
-              onClick={() => {
-                window.open("https://web2.plm.edu.ph/ars/login", "_blank");
-              }}
-            >
-              Alumni Registry
-            </Text>
-          </Tooltip>
-        </div>
-      </SimpleGrid>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "1.5rem",
+        }}
+      >
+        <Picture
+          links={crs}
+          maw={250}
+          overlay="true"
+          opacity={0.8}
+          height="30svh"
+          size="2rem"
+        />
+      </div>
     </Box>
   );
 }

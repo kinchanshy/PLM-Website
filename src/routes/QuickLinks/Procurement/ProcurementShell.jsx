@@ -7,7 +7,7 @@ import {
   Route,
   Outlet,
 } from "react-router-dom";
-import { Text, Space, Divider, Container, Grid } from "@mantine/core";
+import { Text, Space, Divider, Container, Grid, ScrollArea } from "@mantine/core";
 import { links } from "./links";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
@@ -17,6 +17,7 @@ import Competitive from "./Competitive";
 import Alternative from "./Alternative";
 import Notice from "./Notice";
 import Bids from "./Bids";
+import ProcurementOverview from "./ProcurementOverview";
 import QuickLinks from "../../../components/QuickLinks";
 import Nav from "../../../components/Nav";
 
@@ -28,6 +29,11 @@ function ProcurementShell() {
   const [selectedLink, setSelectedLink] = useState(null);
   const [selectedSublink, setSelectedSublink] = useState(null);
   const [activeSidebarIndex, setActiveSidebarIndex] = useState(null);
+  const viewport = useRef(null);
+
+  const scrollToTop = () =>
+    viewport.current.scrollTo({ top: 0, behavior: "smooth" });
+
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
@@ -140,6 +146,12 @@ function ProcurementShell() {
             <Divider size="sm" />
           </div>
           <div style={{ height: "100vh", backgroundColor: "#fff" }}>
+            <ScrollArea
+                h="75svh"
+                scrollbarSize={1}
+                offsetScrollbars
+                viewportRef={viewport}
+              >
             <Grid columns={24}>
               <Grid.Col span={6}>
                 <Container>
@@ -152,7 +164,7 @@ function ProcurementShell() {
                 </Container>
               </Grid.Col>
               <Grid.Col span="auto">
-                <div style={{ height: "100vh", width: "100%" }}>
+                <div>
                   <Container>
                     <Routes>
                       <Route path="/" element={<Outlet />}>
@@ -161,6 +173,10 @@ function ProcurementShell() {
                           path="careers-for-alumni"
                           element={<CareersAlumni />}
                         /> */}
+                        <Route 
+                          path="procurement-overview"
+                          element={<ProcurementOverview />}
+                        />
                         <Route
                           path="annual-procurement-plan"
                           element={<Annual />}
@@ -183,10 +199,19 @@ function ProcurementShell() {
                         />
                       </Route>
                     </Routes>
+                    <Divider
+                      variant="dashed"
+                      label="Scroll to top"
+                      labelPosition="center"
+                      color="#6a0000"
+                      onClick={scrollToTop}
+                      style={{ cursor: "pointer" }}
+                    />
                   </Container>
                 </div>
               </Grid.Col>
             </Grid>
+            </ScrollArea>
           </div>
           <QuickLinks />
         </div>

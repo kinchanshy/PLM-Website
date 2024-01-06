@@ -12,8 +12,9 @@ import A_Magpantay from "../Images/A_Magpantay.jpg";
 import A_Atienza from "../Images/A_Atienza.jpg";
 import N_Gocuyo from "../Images/N_Gocuyo.jpg";
 import P_Rio from "../Images/P_Rio.jpg";
+import BR_Letrero from "../Images/BR_LETRERO.jpg";
 
-function Deans({ selectedSublink }) {
+function Deans({ title }) {
   //const title = selectedSublink.toUpperCase();
   return (
     <Box style={{ fontFamily: "Open Sans, sans serif" }}>
@@ -25,7 +26,7 @@ function Deans({ selectedSublink }) {
         }}
       >
         <Text size="1.5rem" fw="bold" p="xs">
-          {selectedSublink}
+          {title}
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
@@ -833,7 +834,7 @@ function Deans({ selectedSublink }) {
       <Grid.Col span={10}>
         <Card.Section style={{ position: 'relative', overflow: 'hidden' }}>
         <Image
-          src={DUMMY}
+          src={BR_Letrero}
           alt="No way!"
           style={{
             width: '70%', // Set the width to 100%
