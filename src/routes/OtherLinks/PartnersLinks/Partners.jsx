@@ -14,13 +14,9 @@ import {
   IconPhone,
 } from "@tabler/icons-react";
 import Footer from "../../../components/Footer";
-import Navigation from "../../../components/Navigation";
 import Nav from "../../../components/Nav";
 
-
-
 function Partners() {
-
   const aboutTextRef = useRef(null);
   const [isSolidBackground, setIsSolidBackground] = useState(false);
 
@@ -114,48 +110,54 @@ function Partners() {
 
         <div
           style={{
-            display: "flex",     
+            display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             padding: "0 1.5rem 0 1.5rem",
-        
           }}
         >
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
-            <Text p="xs" fw={'bold'} fz={'1.5rem'}>
-            PARTNERS
+          <div style={{ padding: "1.5rem 0 1.5rem 0" }}>
+            <Text p="xs" fw={"bold"} fz={"1.5rem"}>
+              PARTNERS
             </Text>
           </div>
-          
+
           <Divider />
 
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
+          <div style={{ padding: "1.5rem 0 1.5rem 0" }}>
             <Text p="xs">
-            PLM works with partners that share our vision of making service-oriented, quality education a standard in learning.
+              PLM works with partners that share our vision of making
+              service-oriented, quality education a standard in learning.
             </Text>
           </div>
 
           <div>
-            <Text p="xs" fw={'bold'} fz={'1.25rem'}>
-            Scholarship Providers
-            </Text>
-          </div>
-          
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
-            <Text p="xs">
-            PLM partners with foundations and generous individuals to provide poor but deserving students the fighting chance that they deserve. Depending on the partners, scholars receive monthly stipends, book allowance, and even a year-end bonus.
+            <Text p="xs" fw={"bold"} fz={"1.25rem"}>
+              Scholarship Providers
             </Text>
           </div>
 
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
+          <div style={{ padding: "1.5rem 0 1.5rem 0" }}>
             <Text p="xs">
-            Read more about our scholarship providers here. (Nakalink ito under admissions)
+              PLM partners with foundations and generous individuals to provide
+              poor but deserving students the fighting chance that they deserve.
+              Depending on the partners, scholars receive monthly stipends, book
+              allowance, and even a year-end bonus.
             </Text>
           </div>
 
-          <div style={{padding: '1.5rem 0 1.5rem 0'}}>
+          <div style={{ padding: "1.5rem 0 1.5rem 0" }}>
             <Text p="xs">
-            Organizations or individuals interested to provide scholarship to PLM students may contact the Office of Public Affairs (OPA). Inquiries and letters of intent may be addressed to:
+              Read more about our scholarship providers here. (Nakalink ito
+              under admissions)
+            </Text>
+          </div>
+
+          <div style={{ padding: "1.5rem 0 1.5rem 0" }}>
+            <Text p="xs">
+              Organizations or individuals interested to provide scholarship to
+              PLM students may contact the Office of Public Affairs (OPA).
+              Inquiries and letters of intent may be addressed to:
             </Text>
           </div>
 
@@ -183,9 +185,8 @@ function Partners() {
                   </div>
                   <div>
                     <Text fz="lg" fw="bold" p="sm">
-                      We’d love to hear from you! Please
-                      feel free to contact us with any
-                      questions.
+                      We’d love to hear from you! Please feel free to contact us
+                      with any questions.
                     </Text>
                   </div>
                   <div style={{ display: "flex" }}>
@@ -230,8 +231,7 @@ function Partners() {
               </SimpleGrid>
             </Paper>
           </div>
-
-          </div>
+        </div>
 
         <Footer />
       </div>

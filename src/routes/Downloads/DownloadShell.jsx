@@ -32,7 +32,7 @@ function DownloadShell() {
 
   return (
     <>
-      <div style={{ height: "150vh", overflow: "hidden" }}>
+      <div style={{ overflow: "hidden" }}>
         <Nav
           style={{
             backgroundColor: isSolidBackground ? "#fff" : "transparent",
@@ -101,11 +101,9 @@ function DownloadShell() {
           <div
             style={{
               display: "flex",
-              alignItems: "start",
-              gap: "2rem",
+              justifyContent: "center",
               backgroundColor: "#fff",
               zIndex: "1",
-              height: "100vh",
             }}
           >
             <div>

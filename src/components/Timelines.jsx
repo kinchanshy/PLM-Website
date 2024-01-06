@@ -11,9 +11,22 @@ function Timelines({ title, items }) {
       <Timeline active={4} color="#A31920" bulletSize={20} lineWidth={2}>
         {items.map((item, index) => (
           <Timeline.Item key={index} title={item.title}>
-            <Text c="#000" size="md" ta="justify">
-              {item.content}
-            </Text>
+            {Array.isArray(item.content) ? (
+              item.content.map((line, lineIndex) => (
+                <div key={lineIndex} style={{ marginLeft: "1rem" }}>
+                  <Text c="#000" size="md" ta="justify">
+                    {line}
+                  </Text>
+                  {lineIndex < item.content.length - 1 && <br />}
+                </div>
+              ))
+            ) : (
+              <div style={{ marginLeft: "1rem" }}>
+                <Text c="#000" size="md" ta="justify">
+                  {item.content}
+                </Text>
+              </div>
+            )}
             {item.hasBullets && item.subcontent && (
               <List style={{ marginLeft: "1rem" }}>
                 {item.subcontent.map((bullet, bulletIndex) => (

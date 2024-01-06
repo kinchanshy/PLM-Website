@@ -39,6 +39,10 @@ export const menuItems = [
     text: "ADMISSIONS",
     items: [
       {
+        text: "Admission Overview",
+        link: "/admissions/admission-overview",
+      },
+      {
         text: "PLM Admission Test (PLMAT)",
         link: "/admissions/plm-admission-test",
       },
@@ -63,6 +67,10 @@ export const menuItems = [
   {
     text: "RESEARCH",
     items: [
+      {
+        text: "Research at PLM",
+        link: "/research/research-at-plm",
+      },
       {
         text: "Theses and Dissertation",
         link: "/research/theses-and-dissertations",

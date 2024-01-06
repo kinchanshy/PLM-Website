@@ -2,18 +2,16 @@ import React from "react";
 import { Table, Container, Text, List } from "@mantine/core";
 
 function Tables({ columns, data }) {
-  const columnHeaders = columns.map((column) => (
-    <th key={column.key}>
-      <Text p="sm" ta="center">
-        {column.header}
-      </Text>
-    </th>
+  const column = columns.map((column) => (
+    <Table.Th key={column.key}>
+      <Text ta="center">{column.header}</Text>
+    </Table.Th>
   ));
 
   const rows = data.map((rowData) => (
     <tr key={rowData.id}>
       {columns.map((column) => (
-        <td key={column.key}>
+        <Table.Td key={column.key}>
           <Text p="xl" ta={column.textAlign || "center"}>
             {column.useBullets && Array.isArray(rowData[column.key]) ? (
               <List>
@@ -27,7 +25,7 @@ function Tables({ columns, data }) {
               rowData[column.key]
             )}
           </Text>
-        </td>
+        </Table.Td>
       ))}
     </tr>
   ));
@@ -46,13 +44,13 @@ function Tables({ columns, data }) {
         p="md"
         fontSize="sm"
         highlightOnHover
-        withBorder
+        withTableBorder
         withColumnBorders
       >
-        <thead>
-          <tr>{columnHeaders}</tr>
-        </thead>
-        <tbody>{rows}</tbody>
+        <Table.Thead>
+          <Table.Tr>{column}</Table.Tr>
+        </Table.Thead>
+        <Table.Tbody>{rows}</Table.Tbody>
       </Table>
     </Container>
   );

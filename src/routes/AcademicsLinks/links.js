@@ -126,7 +126,7 @@ export const links = [
   },
 ];
 
-// Introductions from line 129 to line #
+// Introductions from line 135 to line 291
 // colleges introduction
 export const collegeIntro = [
   {
@@ -573,7 +573,7 @@ export const csData = [
   },
 ];
 
-// Accordions from line 300 to line 773
+// Accordions from line 576 to line 1049
 // Caup Accordion
 export const caupAccordion = [
   {
@@ -1048,7 +1048,7 @@ export const phAccordion = [
   },
 ];
 
-// Vision and Missions from line 775 to line #
+// Vision and Missions from line 1056 to line 1149
 // caup vision and mission
 export const caupVM = [
   {
@@ -1148,7 +1148,7 @@ export const cptVM = [
   },
 ];
 
-// Timelines from line # to line #
+// Timelines from line 1151 to line 1260
 // caup timeline
 export const caupTimeline = [
   {
@@ -1259,7 +1259,7 @@ export const cptTimeline = [
   },
 ];
 
-// Business Cards from line # to line #
+// Business Cards from line 1264 to line 1549
 // caup business card
 export const caupBusinessCard = {
   collegeName: " COLLEGE OF ARCHITECTURE AND URBAN PLANNING",

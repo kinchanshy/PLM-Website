@@ -6,10 +6,20 @@ import {
   useNavigate,
   useLocation,
 } from "react-router-dom";
-import { Text, Divider, Space, Container } from "@mantine/core";
+import {
+  Text,
+  Divider,
+  Space,
+  Container,
+  ScrollArea,
+  Grid,
+} from "@mantine/core";
+import { links } from "./links";
 import Nav from "../../components/Nav";
 import Footer from "../../components/Footer";
+import Research from "./Research";
 import Theses from "./Theses";
+import Sidebar from "../../components/Sidebar";
 import QuickLinks from "../../components/QuickLinks";
 
 function ResearchShell() {
@@ -18,9 +28,22 @@ function ResearchShell() {
   const targetDivRef = useRef(null);
   const [selectedLink, setSelectedLink] = useState(null);
   const [isSolidBackground, setIsSolidBackground] = useState(false);
+  const viewport = useRef(null);
+
+  const scrollToTop = () =>
+    viewport.current.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
+    scrollToTop();
+  };
+
+  const handleScrollToTop = () => {
+    if (targetDivRef.current) {
+      const navHeight = 75; // Replace with your actual navigation bar height
+      const targetDivOffset = targetDivRef.current.offsetTop - navHeight;
+      window.scrollTo({ top: targetDivOffset, behavior: "smooth" });
+    }
   };
 
   const handleScroll = () => {
@@ -28,6 +51,13 @@ function ResearchShell() {
       const rect = targetDivRef.current.getBoundingClientRect();
       // Adjust the conditions as needed
       setIsSolidBackground(rect.top <= 85); // Set to solid when the targetDivRef is at or above the top of the viewport
+      if (
+        rect.top <= 0 &&
+        rect.bottom >= window.innerHeight &&
+        rect.height < window.innerHeight
+      ) {
+        handleScrollToTop();
+      }
     }
   };
 
@@ -44,7 +74,7 @@ function ResearchShell() {
 
   return (
     <>
-      <div style={{ height: "150vh", overflow: "hidden" }}>
+      <div style={{ overflow: "hidden" }}>
         <Nav
           style={{
             backgroundColor: isSolidBackground ? "#fff" : "transparent",
@@ -114,29 +144,53 @@ function ResearchShell() {
           >
             <Divider size="sm" />
           </div>
-
           <div
             style={{
-              display: "flex",
-              alignItems: "start",
-              gap: "2rem",
-              backgroundColor: "#fff",
-              zIndex: "1",
-              height: "100vh",
+              height: "80svh",
             }}
           >
-            <div>
-              <Container>
-                <Routes>
-                  <Route path="/" element={<Outlet />}>
-                    <Route
-                      path="theses-and-dissertations"
-                      element={<Theses />}
+            <ScrollArea
+              h="75svh"
+              scrollbarSize={1}
+              offsetScrollbars
+              viewportRef={viewport}
+            >
+              <Grid columns={24}>
+                <Grid.Col span={6}>
+                  <div>
+                    <Sidebar
+                      title={selectedLink}
+                      links={links}
+                      onLinkClick={handleLinkClick}
+                      currentRoute={location.pathname}
+                      scrollToTop={handleScrollToTop}
                     />
-                  </Route>
-                </Routes>
-              </Container>
-            </div>
+                  </div>
+                </Grid.Col>
+                <Grid.Col span="auto">
+                  <Container>
+                    <Routes>
+                      <Route path="/" element={<Outlet />}>
+                        {/* <Route index element={<Academics />} /> */}
+                        <Route path="research-at-plm" element={<Research />} />
+                        <Route
+                          path="theses-and-dissertations"
+                          element={<Theses title={selectedLink} />}
+                        />
+                      </Route>
+                    </Routes>
+                    <Divider
+                      variant="dashed"
+                      label="Scroll to top"
+                      labelPosition="center"
+                      color="#6a0000"
+                      onClick={scrollToTop}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </Container>
+                </Grid.Col>
+              </Grid>
+            </ScrollArea>
           </div>
         </div>
         <QuickLinks />

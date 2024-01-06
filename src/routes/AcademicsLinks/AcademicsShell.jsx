@@ -50,6 +50,7 @@ function AcademicsShell() {
 
   const scrollToTop = () =>
     viewport.current.scrollTo({ top: 0, behavior: "smooth" });
+
   const handleLinkClick = (link) => {
     setSelectedLink(link);
     setSelectedSublink(null); // Reset selected sublink when changing main links

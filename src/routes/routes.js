@@ -74,6 +74,7 @@ const NewsLetter = lazy(() => import("./NewsLinks/NewsLetter"));
 const Announcements = lazy(() => import("./NewsLinks/Announcements"));
 const Message = lazy(() => import("./NewsLinks/Message"));
 const ResearchShell = lazy(() => import("./ResearchLinks/ResearchShell"));
+const Research = lazy(() => import("./ResearchLinks/Research"));
 const Theses = lazy(() => import("./ResearchLinks/Theses"));
 const DownloadShell = lazy(() => import("./Downloads/DownloadShell"));
 const Error = lazy(() => import("./Error"));
@@ -393,6 +394,10 @@ export const Routing = [
     path: "research",
     element: ResearchShell,
     children: [
+      {
+        path: "research-at-plm",
+        element: Research,
+      },
       {
         path: "theses-and-dissertations",
         element: Theses,

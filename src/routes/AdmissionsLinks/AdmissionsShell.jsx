@@ -14,7 +14,7 @@ import {
   Space,
   ScrollArea,
 } from "@mantine/core";
-import { useWindowScroll } from "@mantine/hooks";
+// import { useWindowScroll } from "@mantine/hooks";
 import PLMAT from "./PLMAT";
 import MCAT from "./MCAT";
 import CLAT from "./CLAT";
@@ -33,9 +33,14 @@ function AdmissionsShell() {
   const targetDivRef = useRef(null);
   const [selectedLink, setSelectedLink] = useState(null);
   const [isSolidBackground, setIsSolidBackground] = useState(false);
+  const viewport = useRef(null);
+
+  const scrollToTop = () =>
+    viewport.current.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleLinkClick = (link) => {
     setSelectedLink(link);
+    scrollToTop();
   };
 
   const handleScrollToTop = () => {
@@ -147,47 +152,56 @@ function AdmissionsShell() {
 
           <div
             style={{
-              display: "flex",
-              alignItems: "start",
-              gap: "2rem",
-              backgroundColor: "#fff",
-              zIndex: "1",
-              height: "100vh",
+              height: "80svh",
             }}
           >
-            <div style={{ minWidth: "30vw", position: "sticky", top: "0" }}>
-              <Sidebar
-                title={selectedLink}
-                links={links}
-                onLinkClick={handleLinkClick}
-                currentRoute={location.pathname}
-                scrollToTop={handleScrollToTop}
-              />
-            </div>
-            <div>
-              <Routes>
-                <Route path="/" element={<Outlet />}>
-                  <Route
-                    path="admission-overview"
-                    element={<AdmissionOverview />}
+            <ScrollArea
+              h="75svh"
+              scrollbarSize={1}
+              offsetScrollbars
+              viewportRef={viewport}
+            >
+              <Grid columns={24}>
+                <Grid.Col span={6}>
+                  <Sidebar
+                    title={selectedLink}
+                    links={links}
+                    onLinkClick={handleLinkClick}
+                    currentRoute={location.pathname}
+                    scrollToTop={handleScrollToTop}
                   />
-                  <Route path="plm-admission-test" element={<PLMAT />} />
-                  <Route
-                    path="medical-college-admission-test"
-                    element={<MCAT />}
-                  />
-                  <Route
-                    path="college-of-law-admission-test"
-                    element={<CLAT />}
-                  />
-                  <Route path="undergraduate-programs" element={<Programs />} />
-                  <Route
-                    path="scholarship-and-financial-aid"
-                    element={<Scholarship />}
-                  />
-                </Route>
-              </Routes>
-            </div>
+                </Grid.Col>
+                <Grid.Col span="auto">
+                  <Container>
+                    <Routes>
+                      <Route path="/" element={<Outlet />}>
+                        <Route
+                          path="admission-overview"
+                          element={<AdmissionOverview title={selectedLink} />}
+                        />
+                        <Route path="plm-admission-test" element={<PLMAT />} />
+                        <Route
+                          path="medical-college-admission-test"
+                          element={<MCAT />}
+                        />
+                        <Route
+                          path="college-of-law-admission-test"
+                          element={<CLAT />}
+                        />
+                        <Route
+                          path="undergraduate-programs"
+                          element={<Programs />}
+                        />
+                        <Route
+                          path="scholarship-and-financial-aid"
+                          element={<Scholarship />}
+                        />
+                      </Route>
+                    </Routes>
+                  </Container>
+                </Grid.Col>
+              </Grid>
+            </ScrollArea>
           </div>
         </div>
         <QuickLinks />

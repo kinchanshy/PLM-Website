@@ -29,7 +29,7 @@ function Accordions({ items }) {
       {items.map((item) => (
         <Accordion.Item key={item.value} value={item.value}>
           <Accordion.Control>
-            {item.title && <Text fw="bold">{item.title}</Text>}
+            {item.title && <Text fw={500}>{item.title}</Text>}
           </Accordion.Control>
           <Accordion.Panel>
             {item.hasBullets ? (
@@ -40,7 +40,7 @@ function Accordions({ items }) {
                   item.content.map((paragraph, index) => (
                     <React.Fragment key={index}>
                       {paragraph.title && (
-                        <Text fw="bold">{paragraph.title}</Text>
+                        <Text fw={500}>{paragraph.title}</Text>
                       )}
                       {paragraph.text && (
                         <Text ta="justify">{paragraph.text}</Text>

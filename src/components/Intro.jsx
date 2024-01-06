@@ -1,18 +1,18 @@
 import React from "react";
 import { Image, Text, SimpleGrid } from "@mantine/core";
 
-function Intro({ links }) {
+function Intro({ links, titleColor, desColor, conColor, pColor, otherColor }) {
   return (
     <div>
       {links.map((section, index) => (
         <div key={index}>
           {section.title && (
-            <Text p="xs" fz="lg" fw="bold">
+            <Text p="xs" fz="lg" fw="bold" c={titleColor}>
               {section.title}
             </Text>
           )}
           {section.description && (
-            <Text p="xs" ta="justify">
+            <Text p="xs" ta="justify" c={desColor}>
               {section.description}
             </Text>
           )}
@@ -29,7 +29,7 @@ function Intro({ links }) {
                 }}
               >
                 {section.content && (
-                  <Text p="md" ta="justify">
+                  <Text p="md" ta="justify" c={conColor}>
                     {section.content}
                   </Text>
                 )}
@@ -40,12 +40,12 @@ function Intro({ links }) {
             <div>
               {Array.isArray(section.other) ? (
                 section.other.map((paragraph, index) => (
-                  <Text key={index} p="xs" ta="justify">
+                  <Text key={index} p="xs" ta="justify" c={pColor}>
                     {paragraph}
                   </Text>
                 ))
               ) : (
-                <Text p="xs" ta="justify">
+                <Text p="xs" ta="justify" c={otherColor}>
                   {section.other}
                 </Text>
               )}
