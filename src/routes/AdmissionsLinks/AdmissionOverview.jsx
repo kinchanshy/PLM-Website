@@ -6,6 +6,7 @@ import {
   Divider,
   Grid,
   BackgroundImage,
+  Space,
 } from "@mantine/core";
 import pic from "./Images/UnivProfile.png";
 import sibuyas from "../../assets/sibuyas.png";
@@ -28,8 +29,15 @@ function AdmissionOverview() {
         </Text>
       </div>
       <Divider c="#eeee" size="md" />
-
-      <div style={{ backgroundColor: "#602D92", color: "white" }}>
+      <Space h="lg" />
+      <div
+        style={{
+          backgroundColor: "#602D92",
+          color: "white",
+          borderRadius: "0.5rem",
+          padding: "0.5rem",
+        }}
+      >
         <div>
           <Text fz="md" fw="bold" p="md">
             Admission Overview

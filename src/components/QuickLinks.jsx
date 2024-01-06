@@ -102,13 +102,17 @@ function QuickLinks() {
               }}
             >
               <Button variant="subtle" color="white" className="quick">
-                <Text onClick={() => navigate("/students")}>STUDENTS</Text>
+                <Text onClick={() => navigate("/students/students-overview")}>
+                  STUDENTS
+                </Text>
               </Button>
               <Button variant="subtle" color="white" className="quick">
                 <Text onClick={() => navigate("/partners")}>PARTNERS</Text>
               </Button>
               <Button variant="subtle" color="white" className="quick">
-                <Text onClick={() => navigate("/community")}>COMMUNITY</Text>
+                <Text onClick={() => navigate("/community/campus")}>
+                  COMMUNITY
+                </Text>
               </Button>
               <Button variant="subtle" color="white" className="quick">
                 <Text

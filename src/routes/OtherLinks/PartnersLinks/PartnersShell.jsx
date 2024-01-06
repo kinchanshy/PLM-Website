@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useWindowScroll } from "@mantine/hooks";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Text, Space, Divider, Container, ScrollArea,} from "@mantine/core";
+import { Text, Space, Divider, Container, ScrollArea } from "@mantine/core";
 import Footer from "../../../components/Footer";
 import Header from "../../../components/Header";
 import Partners from "./Partners";
@@ -66,7 +66,7 @@ function PartnersShell() {
 
   return (
     <div>
-      <div style={{ height: "150vh", overflow: "hidden" }}>
+      <div style={{ overflow: "hidden" }}>
         <Nav
           style={{
             backgroundColor: isSolidBackground ? "#fff" : "transparent",
@@ -125,23 +125,10 @@ function PartnersShell() {
           >
             <Divider size="sm" />
           </div>
-          <div style={{ height: "100vh", backgroundColor: "#fff" }}>
-            <ScrollArea
-                h="75svh"
-                scrollbarSize={1}
-                offsetScrollbars
-                viewportRef={viewport}
-              >
-                <Partners />
-                <Divider
-                      variant="dashed"
-                      label="Scroll to top"
-                      labelPosition="center"
-                      color="#6a0000"
-                      onClick={scrollToTop}
-                      style={{ cursor: "pointer" }}
-                    />
-            </ScrollArea>
+          <div>
+            <Container size="xl">
+              <Partners />
+            </Container>
           </div>
           <QuickLinks />
         </div>

@@ -68,8 +68,7 @@ function AcademicsShell() {
 
   const handleScrollToTop = () => {
     if (targetDivRef.current) {
-      // const targetDivOffset = targetDivRef.current.offsetTop;
-      const navHeight = 75; // Replace with your actual navigation bar height
+      const navHeight = 75;
       const targetDivOffset = targetDivRef.current.offsetTop - navHeight;
       window.scrollTo({ top: targetDivOffset, behavior: "smooth" });
     }
@@ -102,8 +101,6 @@ function AcademicsShell() {
   }, []);
 
   const handleResetSublink = () => {
-    // Implement the logic to reset the active sublink in the Sidebar
-    // You might need to use a state variable to manage the active sublink in the Sidebar
     setActiveSublink(null);
   };
 

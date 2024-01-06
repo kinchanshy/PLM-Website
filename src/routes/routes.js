@@ -128,7 +128,9 @@ const Competitive = lazy(() => import("./QuickLinks/Procurement/Competitive"));
 const Alternative = lazy(() => import("./QuickLinks/Procurement/Alternative"));
 const Notice = lazy(() => import("./QuickLinks/Procurement/Notice"));
 const Bids = lazy(() => import("./QuickLinks/Procurement/Bids"));
-const ProcurementOverview = lazy(() => import("./QuickLinks/Procurement/ProcurementOverview"));
+const ProcurementOverview = lazy(() =>
+  import("./QuickLinks/Procurement/ProcurementOverview")
+);
 const ContactShell = lazy(() => import("./QuickLinks/ContactUs/ContactShell"));
 const ContactUs = lazy(() => import("./QuickLinks/ContactUs/ContactUs"));
 const GuideShell = lazy(() => import("./Footer/SiteGuide/GuideShell"));

@@ -45,7 +45,7 @@ function AdmissionsShell() {
 
   const handleScrollToTop = () => {
     if (targetDivRef.current) {
-      const navHeight = 75; // Replace with your actual navigation bar height
+      const navHeight = 75;
       const targetDivOffset = targetDivRef.current.offsetTop - navHeight;
       window.scrollTo({ top: targetDivOffset, behavior: "smooth" });
     }
@@ -79,7 +79,7 @@ function AdmissionsShell() {
 
   return (
     <>
-      <div style={{ height: "150vh", overflow: "hidden" }}>
+      <div style={{ overflow: "hidden" }}>
         <Nav
           style={{
             backgroundColor: isSolidBackground ? "#fff" : "transparent",
@@ -111,7 +111,6 @@ function AdmissionsShell() {
           ref={targetDivRef}
           style={{
             position: "sticky",
-            top: "0",
             backgroundColor: "#fff",
             width: "100%",
             zIndex: "1",
@@ -151,47 +150,66 @@ function AdmissionsShell() {
           </div>
           <div
             style={{
-              display: "flex",
-              alignItems: "start",
-              gap: "2rem",
-              backgroundColor: "#fff",
-              zIndex: "1",
-              height: "100vh",
+              height: "80svh",
             }}
           >
-            <div style={{ minWidth: "30vw", position: "sticky", top: "0" }}>
-              <Sidebar
-                title={selectedLink}
-                links={links}
-                onLinkClick={handleLinkClick}
-                currentRoute={location.pathname}
-                scrollToTop={handleScrollToTop}
-              />
-            </div>
-            <div>
-              <Routes>
-                <Route path="/" element={<Outlet />}>
-                  <Route
-                    path="admission-overview"
-                    element={<AdmissionOverview />}
-                  />
-                  <Route path="plm-admission-test" element={<PLMAT />} />
-                  <Route
-                    path="medical-college-admission-test"
-                    element={<MCAT />}
-                  />
-                  <Route
-                    path="college-of-law-admission-test"
-                    element={<CLAT />}
-                  />
-                  <Route path="undergraduate-programs" element={<Programs />} />
-                  <Route
-                    path="scholarship-and-financial-aid"
-                    element={<Scholarship />}
-                  />
-                </Route>
-              </Routes>
-            </div>
+            <ScrollArea
+              h="75svh"
+              scrollbarSize={1}
+              offsetScrollbars
+              viewportRef={viewport}
+            >
+              <Grid columns={24}>
+                <Grid.Col span={6}>
+                  <div>
+                    <Sidebar
+                      title={selectedLink}
+                      links={links}
+                      onLinkClick={handleLinkClick}
+                      currentRoute={location.pathname}
+                      scrollToTop={handleScrollToTop}
+                    />
+                  </div>
+                </Grid.Col>
+                <Grid.Col span="auto">
+                  <Container>
+                    <Routes>
+                      <Route path="/" element={<Outlet />}>
+                        <Route
+                          path="admission-overview"
+                          element={<AdmissionOverview />}
+                        />
+                        <Route path="plm-admission-test" element={<PLMAT />} />
+                        <Route
+                          path="medical-college-admission-test"
+                          element={<MCAT />}
+                        />
+                        <Route
+                          path="college-of-law-admission-test"
+                          element={<CLAT />}
+                        />
+                        <Route
+                          path="undergraduate-programs"
+                          element={<Programs />}
+                        />
+                        <Route
+                          path="scholarship-and-financial-aid"
+                          element={<Scholarship />}
+                        />
+                      </Route>
+                    </Routes>
+                    <Divider
+                      variant="dashed"
+                      label="Scroll to top"
+                      labelPosition="center"
+                      color="#6a0000"
+                      onClick={scrollToTop}
+                      style={{ cursor: "pointer" }}
+                    />
+                  </Container>
+                </Grid.Col>
+              </Grid>
+            </ScrollArea>
           </div>
         </div>
         <QuickLinks />

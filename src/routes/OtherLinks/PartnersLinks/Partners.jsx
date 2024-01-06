@@ -1,13 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  Text,
-  Divider,
-  Space,
-  SimpleGrid,
-  Paper,
-  ActionIcon,
-} from "@mantine/core";
+import { Text, Divider, Container } from "@mantine/core";
 import BusinessCard from "../../../components/BusinessCard";
+import { partnersBusinessCard } from "./links";
 
 function Partners() {
   const aboutTextRef = useRef(null);
@@ -32,19 +26,8 @@ function Partners() {
     };
   }, []);
 
-  // const getFirstSublinkWithComponent = (mainLink) => {
-  //   return mainLink.subLinks.find((sublink) => sublink.component)?.component;
-  // };
-
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        padding: "0 1.5rem 0 1.5rem",
-      }}
-    >
+    <Container size="xl">
       <div style={{ padding: "1.5rem 0 1.5rem 0" }}>
         <Text p="xs" fw={"bold"} fz={"1.5rem"}>
           PARTNERS
@@ -90,10 +73,10 @@ function Partners() {
         </Text>
       </div>
 
-      <div>
-        <BusinessCard {...PartnersBusinessCard} />
+      <div style={{ padding: "1rem" }}>
+        <BusinessCard {...partnersBusinessCard} />
       </div>
-    </div>
+    </Container>
   );
 }
 

@@ -142,3 +142,11 @@
 .button:hover {
   background-color: #cca525;
 }
+
+.download-links {
+  color: #074564;
+}
+
+.download-links:hover {
+  color: #cca525;
+}
