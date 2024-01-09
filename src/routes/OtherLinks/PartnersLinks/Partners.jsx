@@ -60,8 +60,7 @@ function Partners() {
 
       <div style={{ padding: "1.5rem 0 1.5rem 0" }}>
         <Text p="xs">
-          Read more about our scholarship providers here. (Nakalink ito under
-          admissions)
+          Read more about our <a href="/admissions/scholarship-and-financial-aid" style={{textDecoration: "none"}}>scholarship providers here.</a>
         </Text>
       </div>
 
